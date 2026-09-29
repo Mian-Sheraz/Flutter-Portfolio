@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Mohammad Sheraz — Senior Flutter Developer · Portfolio & Resume</title>
+  <meta name="title" content="Mohammad Sheraz — Senior Flutter Developer · Portfolio & Resume">
+  <meta name="description"
+    content="Mohammad Sheraz — Senior Flutter Developer building high-performance iOS, Android & Desktop apps with Dart, Firebase, Clean Architecture, and AI integration.">
+  <meta name="author" content="Mohammad Sheraz">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0d13">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mohammad Sheraz — Flutter Developer Portfolio">
+  <meta property="og:title" content="Mohammad Sheraz — Senior Flutter Developer">
+  <meta property="og:description"
+    content="High-performance cross-platform apps built for production — Clean architecture, robust state management, and pixel-perfect design.">
+  <meta property="og:image" content="assets/images/portfolio-optimized.jpg">
+
+  <!-- Structured Data JSON-LD for Google Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammad Sheraz",
+    "jobTitle": "Senior Flutter Developer",
+    "email": "miansheraz8448@gmail.com",
+    "telephone": "+92 3217813079",
+    "url": "https://github.com/Mian-Sheraz",
+    "sameAs": [
+      "https://github.com/Mian-Sheraz"
+    ],
+    "knowsAbout": [
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "BLoC",
+      "Clean Architecture",
+      "Firebase",
+      "iOS App Development",
+      "Android App Development",
+      "REST APIs",
+      "Offline-First Architecture",
+      "Impeller Shaders"
+    ],
+    "description": "Senior Flutter developer specializing in modern, high-performance, and scalable mobile applications."
+  }
+  </script>
+
+  <link rel="icon" type="image/jpeg" href="assets/images/portfolio-optimized.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body class="loading">
+  <!-- Dynamic Mouse Cursor -->
+  <div class="cr-dot" aria-hidden="true"></div>
+  <div class="cr-ring" aria-hidden="true"></div>
+  <div class="cr-glow" aria-hidden="true"></div>
+  <div class="cr-label" aria-hidden="true">View</div>
+
+  <!-- Scroll Progress Reader Bar -->
+  <div class="scroll-reader" aria-hidden="true">
+    <div class="sr-bar"></div>
+  </div>
+
+  <!-- Background Ambients -->
+  <div id="bg-vignette" aria-hidden="true"></div>
+
+  <!-- 0. PRELOADER SCREEN -->
+  <div id="preloader" role="dialog" aria-modal="true" aria-label="Loading portfolio">
+    <canvas id="plAurora" aria-hidden="true"></canvas>
+
+    <div class="pl-topbar">
+      <span>Mohammad Sheraz · Portfolio</span>
+      <span>Engine: Flutter & Dart</span>
+    </div>
+
+    <div class="pl-inner">
+      <div class="pl-mark">
+        <div class="pl-mark-badge" aria-hidden="true">MS</div>
+      </div>
+      <div class="pl-h1">MOHAMMAD SHERAZ</div>
+      <span class="pl-sub">Senior Flutter Developer · Mobile Architect</span>
+
+      <div class="pl-track">
+        <div class="pl-fill" id="plFill"></div>
+      </div>
+
+      <div class="pl-pct-row">
+        <div class="pl-pct"><b id="plNum">0</b>%</div>
+        <div class="pl-msg" id="plMsg">Initializing Flutter Engine…</div>
+      </div>
+    </div>
+
+    <div class="pl-foot">
+      <span>Sound Null Safety · Impeller</span>
+      <span>Status: Compiling AOT</span>
+    </div>
+  </div>
+
+  <!-- IN-PAGE RESUME DRAWER / MODAL -->
+  <section class="resume-experience" id="resumeModal" aria-hidden="true" hidden>
+    <div class="rv-shell" id="resumeSurface" role="dialog" aria-modal="true" aria-labelledby="resumeViewTitle">
+      <header class="rv-topbar">
+        <div class="rv-identity">
+          <span class="rv-mark" aria-hidden="true">MS</span>
+          <span class="rv-copy">
+            <strong id="resumeViewTitle">Mohammad Sheraz — Resume</strong>
+            <span>Senior Flutter Developer · Official Document</span>
+          </span>
+        </div>
+        <div class="rv-actions">
+          <button class="rv-button" id="resumeBackInline" type="button">
+            <span aria-hidden="true">←</span> Back to Portfolio <span class="rv-key">Esc</span>
+          </button>
+          <a class="rv-button primary" id="resumeDownloadInline" href="resume.html">
+            Full View & Print <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+      <div class="rv-viewer">
+        <img class="rv-preview" src="assets/images/resume-preview.png" alt="Mohammad Sheraz resume preview">
+      </div>
+    </div>
+  </section>
+
+  <div class="page">
+    <!-- NAVIGATION BAR -->
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="#top" class="brand">
+          <div class="brand-monogram">MS</div>
+          Mohammad Sheraz <span>— Flutter Developer</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#work" class="hs">Work</a>
+          <a href="#about" class="hs">About</a>
+          <a href="#experience" class="hs">Experience</a>
+          <a href="#process" class="hs">Process</a>
+          <a href="#stack" class="hs">Stack</a>
+          <a href="resume.html" class="hs" style="color:#b9c4d2">Resume ↗</a>
+          <a href="#contact" class="nav-cta">Let's talk</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
+          aria-controls="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#process">Process</a>
+        <a href="#stack">Stack</a>
+        <a href="resume.html" style="color:var(--accent);">View Resume ↗</a>
+        <a href="#contact" class="mobile-cta">Let's talk</a>
+      </div>
+    </div>
+
+    <main id="top">
+      <!-- 1. HERO SECTION -->
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div class="hero-left">
+              <div class="kicker">Available for Full-time & Remote Roles</div>
+              <h1>Mohammad<br><em>Sheraz</em></h1>
+              <div class="role">Senior Flutter Developer · Mobile Software Engineer</div>
+              <p class="value">
+                Cross-Platform Apps — Engineered for Real-World Use. Clean architecture, high-performance rendering, and
+                production reliability across iOS, Android, and Desktop.
+              </p>
+
+              <ul class="proof-strip">
+                <li>
+                  <span>Experience</span>
+                  <b>4+ Years Building Mobile Apps</b>
+                </li>
+                <li>
+                  <span>Track Record</span>
+                  <b>15+ Shipped Production Apps</b>
+                </li>
+                <li>
+                  <span>Reliability</span>
+                  <b>99.9% Crash-Free Rate</b>
+                </li>
+              </ul>
+
+              <div class="hero-ctas">
+                <a href="#work" class="btn primary">
+                  View Projects
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button class="btn resume-trigger" type="button">
+                  View Resume
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </button>
+                <a href="https://github.com/Mian-Sheraz" target="_blank" rel="noopener" class="btn-icon btn-gh"
+                  aria-label="GitHub Profile" title="GitHub Profile">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                </a>
+                <button class="btn-icon" id="copyEmailBtn" aria-label="Copy Email"
+                  title="Copy miansheraz8448@gmail.com">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 3D Interactive Canvas -->
+            <div class="hero-3d">
+              <img class="hero-3d-fallback" src="assets/images/hero-3d-phone.jpg" alt="Mohammad Sheraz — 3D Flutter Smartphone Application Showcase">
+              <div class="h3d-top">
+                <span class="h3d-live"></span>
+                <b>Flutter 3D Device</b> · Impeller GPU Engine
+              </div>
+              <canvas id="hero3d"
+                aria-label="Interactive 3D Flutter Smartphone — hover, tilt or click to interact with the device"></canvas>
+              <div class="h3d-stats">
+                <span class="h3d-chip">⚡ 60 FPS Impeller</span>
+                <span class="h3d-chip">🏛️ Clean Arch</span>
+                <span class="h3d-chip">🌊 Riverpod 2.0</span>
+              </div>
+              <div class="h3d-hint">Hover / Tilt / Click Device</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. FEATURED WORK (STACKING CARDS) -->
+      <section id="work">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <div class="sec-kicker">Selected 2023—2026</div>
+              <h2 class="sec-title">Featured Work</h2>
+            </div>
+            <div class="sec-note">6 production-grade apps · scroll to stack</div>
+          </div>
+
+          <div class="stack">
+            <!-- Project 01 -->
+            <a href="project.html?id=expensemanager" class="pro view-target">
+              <div class="pc-bar">
+                <div class="pc-dots"><i style="background:#ff5f57"></i><i style="background:#ffbd2e"></i><i
+                    style="background:#28ca42"></i></div>
+                <div class="pc-file">expense_manager.dart <span>— Cash Budget Platform</span></div>
+                <div class="pc-right"><span>2026</span><span class="live-pill"><span class="live-dot"></span>
+                    Live</span></div>
+              </div>
+              <div class="pc-visual">
+                <div class="pc-visual-inner">
+                  <div class="pc-img" style="background: linear-gradient(135deg, #18223d 0%, #0d121f 100%);"></div>
+                </div>
+                <div class="pc-big-n" aria-hidden="true">01</div>
+                <div class="pc-shot-title">ExpenseManager</div>
+                <div class="pc-year-tag">Cash Budget & Real-time Analytics</div>
+              </div>
+              <div class="pc-body">
+                <div class="pc-eyebrow">FINTECH PLATFORM · CROSS-PLATFORM</div>
+                <h3>ExpenseManager — Real-time Cash Budget & Financial Analytics</h3>
+                <p>Enterprise cross-platform personal finance platform featuring offline-first data synchronization,
+                  interactive spending charts, automated budget tracking, and custom expense categorization.</p>
+                <div class="pc-meta">
+                  <div><span>Stack</span><b>Flutter · Riverpod · Firebase · Hive (Offline-First)</b></div>
+                  <div><span>Highlights</span><b>Sub-5ms Cache · Real-time Sync · 60 FPS Visuals</b></div>
+                </div>
+                <div class="pc-footer">
+                  <div class="pc-tags"><span class="tag">Flutter</span><span class="tag">iOS & Android</span><span
+                      class="tag">Fintech</span><span class="tag">Riverpod</span></div>
+                  <span class="pc-link">View case study <em>→</em></span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 02 -->
+            <a href="project.html?id=hrms" class="pro view-target">
+              <div class="pc-bar">
+                <div class="pc-dots"><i style="background:#ff5f57"></i><i style="background:#ffbd2e"></i><i
+                    style="background:#28ca42"></i></div>
+                <div class="pc-file">hrms_portal.dart <span>— Enterprise Suite</span></div>
+                <div class="pc-right"><span>2026</span><span class="live-pill"
+                    style="background:rgba(255,189,46,.1); border-color:rgba(255,189,46,.3); color:#ffd479;"><span
+                      class="live-dot" style="background:#ffbd2e;"></span> Production</span></div>
+              </div>
+              <div class="pc-visual">
+                <div class="pc-visual-inner">
+                  <div class="pc-img" style="background: linear-gradient(135deg, #1a2528 0%, #0c1518 100%);"></div>
+                </div>
+                <div class="pc-big-n" aria-hidden="true">02</div>
+                <div class="pc-shot-title">HRMS Mobile</div>
+                <div class="pc-year-tag">Workforce & Biometric Geofencing</div>
+              </div>
+              <div class="pc-body">
+                <div class="pc-eyebrow">ENTERPRISE SAAS · WORKFORCE</div>
+                <h3>Human Resource Management System Platform</h3>
+                <p>Comprehensive workforce operations app featuring GPS geofenced check-ins, biometric security, leave
+                  request management, document vaults, and automated salary slip generation.</p>
+                <div class="pc-meta">
+                  <div><span>Stack</span><b>Flutter · BLoC · REST API · Geofencing · SQLite</b></div>
+                  <div><span>Highlights</span><b>Biometric Auth · Strict Architecture · Multi-tenant</b></div>
+                </div>
+                <div class="pc-footer">
+                  <div class="pc-tags"><span class="tag">Enterprise</span><span class="tag">BLoC</span><span
+                      class="tag">Clean Arch</span><span class="tag">Security</span></div>
+                  <span class="pc-link">View case study <em>→</em></span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 03 -->
+            <a href="project.html?id=tradepulse" class="pro view-target">
+              <div class="pc-bar">
+                <div class="pc-dots"><i style="background:#ff5f57"></i><i style="background:#ffbd2e"></i><i
+                    style="background:#28ca42"></i></div>
+                <div class="pc-file">trade_pulse.dart <span>— Real-Time Stream</span></div>
+                <div class="pc-right"><span>2025</span><span class="live-pill"><span class="live-dot"></span> Live
+                    Ticker</span></div>
+              </div>
+              <div class="pc-visual">
+                <div class="pc-visual-inner">
+                  <div class="pc-img" style="background: linear-gradient(135deg, #2b1b38 0%, #150d1e 100%);"></div>
+                </div>
+                <div class="pc-big-n" aria-hidden="true">03</div>
+                <div class="pc-shot-title">TradePulse</div>
+                <div class="pc-year-tag">High-Frequency Market Terminal</div>
+              </div>
+              <div class="pc-body">
+                <div class="pc-eyebrow">CAPITAL MARKETS · HIGH SPEED</div>
+                <h3>TradePulse — Real-Time Crypto & Stock Market Tracker</h3>
+                <p>Ultra low-latency market analysis and stock portfolio tracker with streaming WebSocket tickers,
+                  custom candlestick charts, and instantaneous breach notifications.</p>
+                <div class="pc-meta">
+                  <div><span>Stack</span><b>Flutter · WebSockets · Shaders · Custom Canvas</b></div>
+                  <div><span>Highlights</span><b>Sub-second updates · Zero Memory Leaks · Native Bridge</b></div>
+                </div>
+                <div class="pc-footer">
+                  <div class="pc-tags"><span class="tag">WebSockets</span><span class="tag">Charts</span><span
+                      class="tag">Impeller</span><span class="tag">State</span></div>
+                  <span class="pc-link">View case study <em>→</em></span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 04 -->
+            <a href="project.html?id=novalearn" class="pro view-target">
+              <div class="pc-bar">
+                <div class="pc-dots"><i style="background:#ff5f57"></i><i style="background:#ffbd2e"></i><i
+                    style="background:#28ca42"></i></div>
+                <div class="pc-file">nova_learn.dart <span>— AI Tutor</span></div>
+                <div class="pc-right"><span>2025</span><span class="live-pill"><span class="live-dot"></span> AI
+                    Powered</span></div>
+              </div>
+              <div class="pc-visual">
+                <div class="pc-visual-inner">
+                  <div class="pc-img" style="background: linear-gradient(135deg, #172d2b 0%, #0d1a19 100%);"></div>
+                </div>
+                <div class="pc-big-n" aria-hidden="true">04</div>
+                <div class="pc-shot-title">NovaLearn</div>
+                <div class="pc-year-tag">Contextual Agentic Education</div>
+              </div>
+              <div class="pc-body">
+                <div class="pc-eyebrow">EDTECH & AI INTEGRATION · MOBILE</div>
+                <h3>NovaLearn — Intelligent AI Learning Companion</h3>
+                <p>Next-generation learning mobile client integrating Google Gemini and OpenAI APIs to generate dynamic
+                  curriculum quizzes, flashcard memory spaced repetition, and real-time audio explanations.</p>
+                <div class="pc-meta">
+                  <div><span>Stack</span><b>Flutter · Gemini API · OpenAI · Riverpod · Hive</b></div>
+                  <div><span>Highlights</span><b>Streaming LLM Tokens · Audio Synthesis · Adaptive Quizzes</b></div>
+                </div>
+                <div class="pc-footer">
+                  <div class="pc-tags"><span class="tag">GenAI</span><span class="tag">LLM Streams</span><span
+                      class="tag">Flutter</span><span class="tag">Education</span></div>
+                  <span class="pc-link">View case study <em>→</em></span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 05 -->
+            <a href="project.html?id=wealthflow" class="pro view-target">
+              <div class="pc-bar">
+                <div class="pc-dots"><i style="background:#ff5f57"></i><i style="background:#ffbd2e"></i><i
+                    style="background:#28ca42"></i></div>
+                <div class="pc-file">wealth_flow.dart <span>— Portfolio Balancer</span></div>
+                <div class="pc-right"><span>2024</span><span class="live-pill"><span class="live-dot"></span>
+                    Deployed</span></div>
+              </div>
+              <div class="pc-visual">
+                <div class="pc-visual-inner">
+                  <div class="pc-img" style="background: linear-gradient(135deg, #2e2617 0%, #17120a 100%);"></div>
+                </div>
+                <div class="pc-big-n" aria-hidden="true">05</div>
+                <div class="pc-shot-title">WealthFlow</div>
+                <div class="pc-year-tag">Multi-Asset Wealth Manager</div>
+              </div>
+              <div class="pc-body">
+                <div class="pc-eyebrow">WEALTH MANAGEMENT · INVESTING</div>
+                <h3>WealthFlow — Multi-Asset Investment & Dividend Tracker</h3>
+                <p>Cross-asset portfolio manager aggregating equity, mutual funds, gold, and fixed deposits into a
+                  unified net-worth trajectory with automated dividend alerts and tax reports.</p>
+                <div class="pc-meta">
+                  <div><span>Stack</span><b>Flutter · StateNotifier · Firebase Functions · Drift</b></div>
+                  <div><span>Highlights</span><b>Complex Calculations · PDF Reporting · Encrypted Storage</b></div>
+                </div>
+                <div class="pc-footer">
+                  <div class="pc-tags"><span class="tag">Wealth</span><span class="tag">Finance</span><span
+                      class="tag">Drift</span><span class="tag">Clean Arch</span></div>
+                  <span class="pc-link">View case study <em>→</em></span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 06 -->
+            <a href="project.html?id=expenseflow" class="pro view-target">
+              <div class="pc-bar">
+                <div class="pc-dots"><i style="background:#ff5f57"></i><i style="background:#ffbd2e"></i><i
+                    style="background:#28ca42"></i></div>
+                <div class="pc-file">expense_flow.dart <span>— Micro Budget</span></div>
+                <div class="pc-right"><span>2024</span><span class="live-pill"><span class="live-dot"></span>
+                    Utility</span></div>
+              </div>
+              <div class="pc-visual">
+                <div class="pc-visual-inner">
+                  <div class="pc-img" style="background: linear-gradient(135deg, #1b2133 0%, #0d101a 100%);"></div>
+                </div>
+                <div class="pc-big-n" aria-hidden="true">06</div>
+                <div class="pc-shot-title">ExpenseFlow</div>
+                <div class="pc-year-tag">Minimalist Gesture Budget App</div>
+              </div>
+              <div class="pc-body">
+                <div class="pc-eyebrow">CONSUMER UTILITY · GESTURES</div>
+                <h3>ExpenseFlow — One-Handed Budget & Receipt OCR</h3>
+                <p>Minimalist micro-budgeting app crafted with intuitive fluid swipe gestures, haptic feedback, and
+                  on-device machine learning OCR receipt extraction.</p>
+                <div class="pc-meta">
+                  <div><span>Stack</span><b>Flutter · ML Kit · SQLite · Custom Physics Gestures</b></div>
+                  <div><span>Highlights</span><b>Offline OCR · Spring Animations · Haptics</b></div>
+                </div>
+                <div class="pc-footer">
+                  <div class="pc-tags"><span class="tag">Micro UX</span><span class="tag">ML Kit</span><span
+                      class="tag">Physics</span><span class="tag">Mobile</span></div>
+                  <span class="pc-link">View case study <em>→</em></span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ABOUT SECTION -->
+      <section id="about" class="about">
+        <div class="wrap">
+          <div class="about-grid">
+            <div class="headshot-wrap">
+              <img class="headshot-img" src="assets/images/sheraz-portrait.jpg"
+                alt="Mohammad Sheraz — Senior Flutter Developer">
+              <div class="headshot-overlay"></div>
+              <div class="headshot-badge">
+                <strong>Mohammad Sheraz</strong>
+                <span>Senior Flutter & Mobile Developer</span>
+              </div>
+            </div>
+
+            <div class="about-body">
+              <div class="sec-kicker">About Me</div>
+              <h2>Building premium, scalable mobile applications with Flutter.</h2>
+              <p class="about-lead">
+                I am a passionate <strong>Senior Flutter Developer</strong> with over 4 years of hands-on experience
+                designing and delivering production-ready mobile apps that users love.
+              </p>
+              <p class="about-text">
+                My architectural philosophy centers on <strong>Clean Architecture</strong>, maintainability, and
+                predictable state management. Whether orchestrating complex offline-first data layers with Hive and
+                SQLite or writing custom shaders and animations for 60 FPS responsiveness, I bridge the gap between
+                stunning UI and rock-solid software engineering.
+              </p>
+
+              <div class="about-pillars">
+                <div class="pillar-card">
+                  <h4><span>🏛️</span> Clean Architecture</h4>
+                  <p>Strict decoupling between Domain, Data, and Presentation layers for effortless testability and code
+                    scalability.</p>
+                </div>
+                <div class="pillar-card">
+                  <h4><span>⚡</span> 60 FPS Performance</h4>
+                  <p>Fine-tuned widget trees, lazy-loaded lists, and CPU/GPU memory profiling via Flutter DevTools.</p>
+                </div>
+                <div class="pillar-card">
+                  <h4><span>🔄</span> Offline-First Reactive</h4>
+                  <p>Sub-5ms local persistence paired with cloud sync streams for uninterrupted user workflows.</p>
+                </div>
+                <div class="pillar-card">
+                  <h4><span>🤖</span> AI & Cloud Ready</h4>
+                  <p>Seamless integrations with Firebase Cloud infrastructure, Google Gemini, and OpenAI APIs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. WORK EXPERIENCE TIMELINE -->
+      <section id="experience" class="experience">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <div class="sec-kicker">Career Milestones</div>
+              <h2 class="sec-title">Work Experience</h2>
+            </div>
+            <div class="sec-note">Proven track record · Enterprise & Client Solutions</div>
+          </div>
+
+          <div class="career-stage">
+            <!-- Role 1 -->
+            <article class="career-card">
+              <div class="career-card-top">
+                <span class="career-phase">Present Role</span>
+                <span class="exp-company">TS Technology</span>
+              </div>
+              <div class="exp-title-row">
+                <h3>Senior Flutter Developer</h3>
+              </div>
+              <div class="exp-meta">
+                <span>Jan 2024 — Present</span>
+                <span>·</span>
+                <span>Lahore, Pakistan (On-site / Hybrid)</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Architected scalable, multi-tenant mobile applications using <b>Flutter, Riverpod, and Clean
+                    Architecture</b>, decreasing overall regression bugs by 35%.</li>
+                <li>Engineered offline-first local synchronization engines with <b>Hive and Cloud Firestore</b>,
+                  ensuring dependable transaction capture under unstable cellular connections.</li>
+                <li>Authored automated test suites with <b>unit, widget, and integration tests</b>, achieving over 88%
+                  coverage across critical domain workflows.</li>
+                <li>Mentored junior engineers on Dart sound null safety, DRY principles, and Git trunk-based development
+                  workflows.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Riverpod</span>
+                <span class="tag">Clean Architecture</span>
+                <span class="tag">Hive</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">CI/CD</span>
+              </div>
+            </article>
+
+            <!-- Role 2 -->
+            <article class="career-card">
+              <div class="career-card-top">
+                <span class="career-phase">Mid-Level</span>
+                <span class="exp-company">TechLeap Solutions</span>
+              </div>
+              <div class="exp-title-row">
+                <h3>Flutter App Developer</h3>
+              </div>
+              <div class="exp-meta">
+                <span>Jun 2021 — Dec 2023</span>
+                <span>·</span>
+                <span>Remote / Lahore</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Shipped 5+ high-traffic cross-platform consumer apps to both Google Play Store and Apple App Store
+                  across fintech, e-commerce, and logistics.</li>
+                <li>Spearheaded BLoC state management adoption, improving code modularity and simplifying multi-screen
+                  state orchestration.</li>
+                <li>Integrated native platform channels for background geolocation, push notifications, and biometric
+                  authentication.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">BLoC</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">Dio</span>
+                <span class="tag">App Store Release</span>
+                <span class="tag">Play Console</span>
+              </div>
+            </article>
+
+            <!-- Role 3 -->
+            <article class="career-card">
+              <div class="career-card-top">
+                <span class="career-phase">Foundation</span>
+                <span class="exp-company">CodeWave Systems</span>
+              </div>
+              <div class="exp-title-row">
+                <h3>Associate Mobile Engineer</h3>
+              </div>
+              <div class="exp-meta">
+                <span>Aug 2020 — May 2021</span>
+                <span>·</span>
+                <span>Lahore, Pakistan</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Built responsive mobile user interfaces following Figma prototypes with pixel-perfect Material
+                  Design compliance.</li>
+                <li>Integrated RESTful APIs, handled edge-case error scenarios, and implemented secure persistent token
+                  storage.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Provider</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">Git</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. THE PROCESS -->
+      <section id="process">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <div class="sec-kicker">Methodology</div>
+              <h2 class="sec-title">The Engineering Process</h2>
+            </div>
+            <div class="sec-note">4 Disciplined Steps · Concept to App Store</div>
+          </div>
+
+          <div class="pro-flow">
+            <div class="pro-step">
+              <div class="pro-step-num">01</div>
+              <div class="pro-step-body">
+                <h3>Discovery & Specs</h3>
+                <p>Deconstruct business requirements into clear data models, user journeys, edge-case failure modes, and
+                  technical specifications.</p>
+              </div>
+            </div>
+
+            <div class="pro-step">
+              <div class="pro-step-num">02</div>
+              <div class="pro-step-body">
+                <h3>Clean Architecture</h3>
+                <p>Establish domain repository contracts, feature boundaries, and reactive state stores before touching
+                  the UI layer.</p>
+              </div>
+            </div>
+
+            <div class="pro-step">
+              <div class="pro-step-num">03</div>
+              <div class="pro-step-body">
+                <h3>Build & TDD</h3>
+                <p>Implement pixel-perfect widgets, integrate REST/GraphQL APIs, and enforce unit and widget test suites
+                  for regression safety.</p>
+              </div>
+            </div>
+
+            <div class="pro-step">
+              <div class="pro-step-num">04</div>
+              <div class="pro-step-body">
+                <h3>Profiling & Launch</h3>
+                <p>Profile frame rates in Flutter DevTools, compile Impeller shaders, and deploy via automated GitHub
+                  Actions CI/CD to app stores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. CORE EXPERTISE & CAPABILITIES -->
+      <section id="capabilities" class="capabilities">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <div class="sec-kicker">Core Capabilities</div>
+              <h2 class="sec-title">Core Expertise</h2>
+            </div>
+            <div class="sec-note">Engineered for Scalability · Modern Mobile Tech</div>
+          </div>
+
+          <div class="caps-grid">
+            <div class="cap-card">
+              <div class="cap-icon">🧠</div>
+              <h3>AI & Agentic Workflows</h3>
+              <p>Integrating Google Gemini and OpenAI APIs into Flutter apps for contextual assistant features,
+                intelligent search, and dynamic summaries.</p>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon">🔥</div>
+              <h3>Firebase Architecture</h3>
+              <p>Full-stack serverless integration using Firestore, Authentication, Cloud Functions, Cloud Messaging,
+                and remote config flags.</p>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon">⚡</div>
+              <h3>State Architecture</h3>
+              <p>Advanced state modeling with Riverpod and BLoC. Zero unnecessary widget rebuilds, predictable
+                lifecycles, and deterministic data flow.</p>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon">💾</div>
+              <h3>Offline-First Systems</h3>
+              <p>Robust on-device databases using Hive, Isar, and Drift (SQLite) with automatic background conflict
+                resolution.</p>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon">🎨</div>
+              <h3>Impeller & UI Craft</h3>
+              <p>Hardware-accelerated rendering, custom painters, physics-based fluid gestures, and dark-mode design
+                systems.</p>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon">🚀</div>
+              <h3>Automated CI/CD</h3>
+              <p>Fastlane scripts and GitHub Actions workflows for continuous integration, code linting, automated
+                testing, and store deployment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. TOOLS I BUILD WITH (MARQUEE) -->
+      <section id="stack">
+        <div class="wrap">
+          <div class="sec-head">
+            <div>
+              <div class="sec-kicker">Tech Stack</div>
+              <h2 class="sec-title">Tools I Build With</h2>
+            </div>
+            <div class="sec-note">Native-grade · Dart sound typing</div>
+          </div>
+
+          <div class="skills-marquee-container">
+            <!-- Row 1: Left Scroll -->
+            <div class="skills-marquee-row">
+              <div class="skills-marquee-track marquee-left">
+                <div class="skill">
+                  <div class="skill-ico" style="color:#02569B">Fl</div>
+                  <div><b>Flutter</b><span>Cross-platform Engine</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#0175C2">Da</div>
+                  <div><b>Dart</b><span>Sound Null Safety</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#0553B1">Rp</div>
+                  <div><b>Riverpod</b><span>Reactive State</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#805ad5">Bl</div>
+                  <div><b>BLoC Pattern</b><span>Event-driven State</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#ffca28">Fb</div>
+                  <div><b>Firebase</b><span>Firestore & Functions</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#22d39a">Hv</div>
+                  <div><b>Hive NoSQL</b><span>Offline-First Storage</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#00e5ff">Ap</div>
+                  <div><b>REST & Dio</b><span>Robust Networking</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#ff5252">Ws</div>
+                  <div><b>WebSockets</b><span>Real-Time Tickers</span></div>
+                </div>
+                <!-- Duplicate for infinite seamless marquee -->
+                <div class="skill">
+                  <div class="skill-ico" style="color:#02569B">Fl</div>
+                  <div><b>Flutter</b><span>Cross-platform Engine</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#0175C2">Da</div>
+                  <div><b>Dart</b><span>Sound Null Safety</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#0553B1">Rp</div>
+                  <div><b>Riverpod</b><span>Reactive State</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#805ad5">Bl</div>
+                  <div><b>BLoC Pattern</b><span>Event-driven State</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#ffca28">Fb</div>
+                  <div><b>Firebase</b><span>Firestore & Functions</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#22d39a">Hv</div>
+                  <div><b>Hive NoSQL</b><span>Offline-First Storage</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#00e5ff">Ap</div>
+                  <div><b>REST & Dio</b><span>Robust Networking</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#ff5252">Ws</div>
+                  <div><b>WebSockets</b><span>Real-Time Tickers</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Right Scroll -->
+            <div class="skills-marquee-row">
+              <div class="skills-marquee-track marquee-right">
+                <div class="skill">
+                  <div class="skill-ico" style="color:#9b5de5">Cl</div>
+                  <div><b>Clean Architecture</b><span>Feature-First MVVM</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#22d39a">Te</div>
+                  <div><b>Automated Testing</b><span>Unit & Widget Tests</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#3d5afe">Git</div>
+                  <div><b>Git & GitHub</b><span>Version Control</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#00f2fe">Ci</div>
+                  <div><b>GitHub Actions</b><span>Continuous Integration</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#ff9100">Ai</div>
+                  <div><b>Google Gemini</b><span>GenAI Integration</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#10a37f">Oa</div>
+                  <div><b>OpenAI API</b><span>LLM Mobile Tools</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#7fdfff">Sq</div>
+                  <div><b>SQLite / Drift</b><span>Relational DB</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#6750A4">M3</div>
+                  <div><b>Material 3</b><span>Theming & Tokens</span></div>
+                </div>
+                <!-- Duplicate for infinite seamless marquee -->
+                <div class="skill">
+                  <div class="skill-ico" style="color:#9b5de5">Cl</div>
+                  <div><b>Clean Architecture</b><span>Feature-First MVVM</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#22d39a">Te</div>
+                  <div><b>Automated Testing</b><span>Unit & Widget Tests</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#3d5afe">Git</div>
+                  <div><b>Git & GitHub</b><span>Version Control</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#00f2fe">Ci</div>
+                  <div><b>GitHub Actions</b><span>Continuous Integration</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#ff9100">Ai</div>
+                  <div><b>Google Gemini</b><span>GenAI Integration</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#10a37f">Oa</div>
+                  <div><b>OpenAI API</b><span>LLM Mobile Tools</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#7fdfff">Sq</div>
+                  <div><b>SQLite / Drift</b><span>Relational DB</span></div>
+                </div>
+                <div class="skill">
+                  <div class="skill-ico" style="color:#6750A4">M3</div>
+                  <div><b>Material 3</b><span>Theming & Tokens</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. GITHUB ACTIVITY -->
+      <section>
+        <div class="wrap">
+          <div class="github-activity">
+            <div class="github-activity-head">
+              <div>
+                <div class="sec-kicker">Open Source & Code</div>
+                <h3>GitHub Activity & Code Quality</h3>
+                <p>Consistent commits, clean pull requests, and modular open-source architectures.</p>
+              </div>
+              <a href="https://github.com/Mian-Sheraz" target="_blank" rel="noopener" class="github-activity-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+                Follow @Mian-Sheraz on GitHub ↗
+              </a>
+            </div>
+
+            <div class="github-grid-stats">
+              <div class="gh-stat-box">
+                <span>Total Repositories</span>
+                <strong>18+</strong>
+              </div>
+              <div class="gh-stat-box">
+                <span>Code Reliability</span>
+                <strong>99.9%</strong>
+              </div>
+              <div class="gh-stat-box">
+                <span>Primary Language</span>
+                <strong>Dart / Flutter</strong>
+              </div>
+              <div class="gh-stat-box">
+                <span>Production Releases</span>
+                <strong>15+ Apps</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. CONTACT SECTION -->
+      <section id="contact">
+        <div class="wrap">
+          <div class="contact-card">
+            <div>
+              <div class="sec-kicker">Get In Touch</div>
+              <h2>Let’s build<br>something iconic.</h2>
+              <p>Available for senior mobile engineering roles, contract architecture, and cross-platform mobile
+                initiatives.</p>
+            </div>
+
+            <div class="contact-interactive-group">
+              <div class="contact-row-box">
+                <div class="contact-row-info">
+                  <span>Direct Email</span>
+                  <strong>miansheraz8448@gmail.com</strong>
+                </div>
+                <a href="mailto:miansheraz8448@gmail.com" class="btn primary"
+                  style="padding: 10px 18px; font-size: 13px;">
+                  Send Mail
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="contact-row-box">
+                <div class="contact-row-info">
+                  <span>Phone / WhatsApp</span>
+                  <strong>+92 3217813079</strong>
+                </div>
+                <a href="https://wa.me/923217813079" target="_blank" rel="noopener" class="btn"
+                  style="padding: 10px 18px; font-size: 13px;">
+                  Chat on WhatsApp ↗
+                </a>
+              </div>
+
+              <div class="contact-social-pills">
+                <a href="https://github.com/Mian-Sheraz" target="_blank" rel="noopener" class="social-pill">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                  GitHub @Mian-Sheraz
+                </a>
+                <a href="resume.html" class="social-pill">
+                  📄 Full Interactive Resume
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="foot-inner">
+        <div>
+          © 2026 <strong>Mohammad Sheraz</strong> · Senior Flutter Developer.
+        </div>
+        <div class="foot-status">
+          <span class="foot-status-dot"></span>
+          Available for remote & full-time mobile development
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

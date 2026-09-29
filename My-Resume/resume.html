@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Mohammad Sheraz — Senior Flutter Developer Resume</title>
+  <meta name="description" content="Resume of Mohammad Sheraz — Senior Flutter Developer & Cross-Platform Engineer specializing in high-performance iOS, Android, and Desktop applications with Dart, Firebase, and Clean Architecture.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="assets/images/portfolio-optimized.jpg">
+
+  <style>
+    :root {
+      --bg: #080b11;
+      --surface: #111620;
+      --line: rgba(255, 255, 255, .09);
+      --text: #eef1f7;
+      --muted: #9099a8;
+      --accent: #3a86ff;
+      --cyan: #00f2fe;
+      --green: #22d39a;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% -15%, rgba(58, 134, 255, .16), transparent 42%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    :focus-visible {
+      outline: 3px solid #7fdfff;
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    .resume-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Topbar */
+    .topbar {
+      min-height: 74px;
+      padding: 14px clamp(18px, 4vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(8, 11, 17, .85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(58, 134, 255, .32);
+      border-radius: 10px;
+      color: var(--accent);
+      background: rgba(58, 134, 255, .1);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .brand-copy b { display: block; font-size: 14px; }
+    .brand-copy span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+
+    .actions { display: flex; align-items: center; gap: 10px; }
+
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      color: #cbd2de;
+      background: rgba(255, 255, 255, .04);
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .25s var(--ease), border-color .25s, background .25s;
+    }
+
+    .button:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, .25); background: rgba(255, 255, 255, .08); }
+
+    .button.primary {
+      color: white;
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: 0 10px 28px rgba(58, 134, 255, .25);
+    }
+
+    .button.primary:hover {
+      background: #256ee0;
+      border-color: #7ab8ff;
+    }
+
+    /* Main Container */
+    .viewer-shell {
+      flex: 1;
+      padding: clamp(20px, 3vw, 40px) clamp(16px, 4vw, 48px);
+      max-width: 1040px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* View Switcher */
+    .view-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .switch-btn {
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .switch-btn.active {
+      background: rgba(58, 134, 255, 0.15);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Paper Document Card */
+    .paper-resume {
+      background: #ffffff;
+      color: #1a1f2c;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+      padding: 48px 56px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    @media(max-width:680px) {
+      .paper-resume {
+        padding: 30px 22px;
+      }
+    }
+
+    /* Resume Typography inside Paper */
+    .paper-header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .paper-header h1 {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .paper-header .headline {
+      font-size: 14px;
+      font-weight: 700;
+      color: #2563eb;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .paper-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 16px;
+      font-size: 12.5px;
+      color: #475569;
+    }
+
+    .paper-contact a {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .paper-contact a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    .paper-section {
+      margin-bottom: 22px;
+    }
+
+    .paper-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0f172a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .paper-section p {
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    /* Skills Grid */
+    .skills-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px 16px;
+      margin-bottom: 6px;
+      font-size: 12.8px;
+    }
+
+    @media(max-width:540px) {
+      .skills-row { grid-template-columns: 1fr; }
+    }
+
+    .skills-row strong {
+      color: #0f172a;
+    }
+
+    .skills-row span {
+      color: #334155;
+    }
+
+    /* Job & Project Entries */
+    .paper-entry {
+      margin-bottom: 16px;
+    }
+
+    .paper-entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .paper-entry-head strong {
+      font-size: 14px;
+      color: #0f172a;
+    }
+
+    .paper-entry-head .role-sub {
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .paper-entry-head .date-loc {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .paper-bullets {
+      margin: 6px 0 0 18px;
+      padding: 0;
+      color: #334155;
+    }
+
+    .paper-bullets li {
+      margin-bottom: 5px;
+    }
+
+    .paper-bullets b {
+      color: #0f172a;
+    }
+
+    /* Graphic Preview Sheet */
+    .visual-preview-sheet {
+      display: none;
+      text-align: center;
+    }
+
+    .visual-preview-sheet.active {
+      display: block;
+    }
+
+    .visual-preview-sheet img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+    }
+
+    /* Print media optimization */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+      }
+      .topbar, .view-switcher {
+        display: none !important;
+      }
+      .viewer-shell {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .paper-resume {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+      .visual-preview-sheet {
+        display: none !important;
+      }
+      .paper-resume-view {
+        display: block !important;
+      }
+      a {
+        text-decoration: none !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="resume-page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">MS</div>
+        <div class="brand-copy">
+          <b>Mohammad Sheraz</b>
+          <span>Senior Flutter Developer · Official Resume</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="button" href="index.html">← Back to Portfolio</a>
+        <button class="button primary" onclick="window.print()" type="button">Print / Save PDF 🖨️</button>
+      </div>
+    </header>
+
+    <main class="viewer-shell">
+      <div class="view-switcher">
+        <button class="switch-btn active" id="btnPaperView" onclick="toggleView('paper')">Formatted Document View</button>
+        <button class="switch-btn" id="btnGraphicView" onclick="toggleView('graphic')">Original Visual Mockup</button>
+      </div>
+
+      <!-- VIEW 1: Full Formatted Resume (Screen & Print) -->
+      <div class="paper-resume-view" id="paperResumeView">
+        <article class="paper-resume">
+          <header class="paper-header">
+            <h1>Mohammad Sheraz</h1>
+            <div class="headline">Senior Flutter Developer · Cross-Platform Software Engineer</div>
+            <div class="paper-contact">
+              <span>✉️ <a href="mailto:miansheraz8448@gmail.com">miansheraz8448@gmail.com</a></span>
+              <span>📱 <a href="tel:+923217813079">+92 3217813079</a></span>
+              <span>🔗 <a href="https://github.com/Mian-Sheraz" target="_blank" rel="noopener">github.com/Mian-Sheraz</a></span>
+              <span>📍 Lahore, Pakistan</span>
+            </div>
+          </header>
+
+          <!-- SUMMARY -->
+          <section class="paper-section">
+            <div class="paper-section-title">Professional Summary</div>
+            <p>
+              Results-driven <strong>Senior Flutter Developer</strong> with extensive expertise in architecting and delivering high-performance, production-grade cross-platform applications across iOS, Android, and Desktop. Specialized in <strong>Clean Architecture (MVVM / BLoC / Riverpod)</strong>, offline-first data synchronization, custom UI rendering, and AI-powered workflow integration. Proven track record of shipping crash-free apps with scalable codebases and intuitive user experiences.
+            </p>
+          </section>
+
+          <!-- SKILLS -->
+          <section class="paper-section">
+            <div class="paper-section-title">Core Technical Competencies</div>
+            <div class="skills-row">
+              <strong>Languages:</strong>
+              <span>Dart (Strong Typing, Sound Null Safety, Metaprogramming), Java, Kotlin, Swift (Platform Channels), SQL, JavaScript</span>
+            </div>
+            <div class="skills-row">
+              <strong>Frameworks & State:</strong>
+              <span>Flutter SDK (Material 3, Cupertino, Impeller Shaders), Riverpod, BLoC, Provider, GetX</span>
+            </div>
+            <div class="skills-row">
+              <strong>Architecture & Design:</strong>
+              <span>Clean Architecture, MVVM, SOLID Principles, Feature-First Modularity, Repository Pattern, TDD</span>
+            </div>
+            <div class="skills-row">
+              <strong>Backend & Cloud:</strong>
+              <span>Firebase (Firestore, Cloud Functions, Auth, Crashlytics, Cloud Messaging), RESTful APIs (Dio, Retrofit), GraphQL, WebSockets</span>
+            </div>
+            <div class="skills-row">
+              <strong>Storage & Database:</strong>
+              <span>Hive (NoSQL Offline-First), Isar, SQLite / Drift, Shared Preferences, Secure Storage</span>
+            </div>
+            <div class="skills-row">
+              <strong>Tooling & CI/CD:</strong>
+              <span>Git, GitHub Actions, Fastlane, Docker, Postman, Figma, Android Studio, Xcode, Flutter DevTools</span>
+            </div>
+          </section>
+
+          <!-- WORK EXPERIENCE -->
+          <section class="paper-section">
+            <div class="paper-section-title">Professional Experience</div>
+
+            <div class="paper-entry">
+              <div class="paper-entry-head">
+                <strong>TS Technology <span class="role-sub">— Senior Flutter Developer</span></strong>
+                <span class="date-loc">Jan 2024 — Present | Lahore, Pakistan</span>
+              </div>
+              <ul class="paper-bullets">
+                <li>Architected and delivered multi-module enterprise mobile applications using <strong>Flutter & Clean Architecture</strong>, reducing technical debt by 35%.</li>
+                <li>Engineered robust offline-first synchronization using <strong>Hive and Firebase Cloud Firestore</strong>, ensuring zero data loss during unstable network conditions.</li>
+                <li>Implemented state management using <strong>Riverpod & StateNotifier</strong>, optimizing widget rebuilds and maintaining an average frame rate of 60 FPS across legacy devices.</li>
+                <li>Integrated AI automation workflows (OpenAI & Google Gemini APIs) into customer-facing apps, enhancing user engagement by 40%.</li>
+                <li>Set up automated CI/CD pipelines via <strong>GitHub Actions and Fastlane</strong>, cutting deployment times from hours to 12 minutes.</li>
+              </ul>
+            </div>
+
+            <div class="paper-entry">
+              <div class="paper-entry-head">
+                <strong>TechLeap Solutions <span class="role-sub">— Flutter App Developer</span></strong>
+                <span class="date-loc">Jun 2021 — Dec 2023 | Remote / Lahore</span>
+              </div>
+              <ul class="paper-bullets">
+                <li>Developed and launched 5+ client applications for fintech, logistics, and healthcare on both Apple App Store and Google Play Store.</li>
+                <li>Integrated secure payment gateways (Stripe, Razorpay, In-App Purchases) and biometrics authentication.</li>
+                <li>Conducted code reviews, enforced strict linting rules, and achieved over 85% test coverage through unit and widget testing.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- FEATURED PROJECTS -->
+          <section class="paper-section">
+            <div class="paper-section-title">Key Featured Projects</div>
+
+            <div class="paper-entry">
+              <div class="paper-entry-head">
+                <strong>ExpenseManager — Real-time Cash Budget & Financial Analytics</strong>
+                <span class="date-loc">Flutter, Riverpod, Hive, Syncfusion Charts</span>
+              </div>
+              <p style="font-size:12.8px; margin-top:2px;">
+                High-performance personal finance app featuring instant ledger syncing, automated budget alerts, interactive spending graphs, and localized encrypted data storage. Shipped to 50k+ active users.
+              </p>
+            </div>
+
+            <div class="paper-entry">
+              <div class="paper-entry-head">
+                <strong>HRMS Mobile — Enterprise Human Resource Management Suite</strong>
+                <span class="date-loc">Flutter, BLoC, REST API, Geofencing, Biometrics</span>
+              </div>
+              <p style="font-size:12.8px; margin-top:2px;">
+                Comprehensive employee attendance, payroll breakdown, leave approvals, and push notifications with real-time GPS check-in geofencing.
+              </p>
+            </div>
+
+            <div class="paper-entry">
+              <div class="paper-entry-head">
+                <strong>TradePulse — Real-Time Crypto & Stock Market Tracker</strong>
+                <span class="date-loc">Flutter, WebSockets, Clean Architecture, Candlestick Shaders</span>
+              </div>
+              <p style="font-size:12.8px; margin-top:2px;">
+                Low-latency trading tracker with live WebSocket price ticker, order book visualizer, custom price alerts, and instant portfolio rebalancing simulations.
+              </p>
+            </div>
+          </section>
+
+          <!-- EDUCATION -->
+          <section class="paper-section">
+            <div class="paper-section-title">Education & Certifications</div>
+            <div class="paper-entry">
+              <div class="paper-entry-head">
+                <strong>Bachelor of Science in Computer Science (BSCS)</strong>
+                <span class="date-loc">2017 — 2021</span>
+              </div>
+              <p style="font-size:12.5px; color:#475569;">Key Courses: Data Structures & Algorithms, Mobile App Engineering, Software Architecture, Database Systems, Computer Networks.</p>
+            </div>
+          </section>
+        </article>
+      </div>
+
+      <!-- VIEW 2: Graphic Mockup View -->
+      <div class="visual-preview-sheet" id="graphicResumeView">
+        <img src="assets/images/resume-preview.png" alt="Mohammad Sheraz Resume Document Mockup">
+      </div>
+    </main>
+  </div>
+
+  <script src="resume-data.js"></script>
+  <script>
+    function toggleView(view) {
+      var paperView = document.getElementById('paperResumeView');
+      var graphicView = document.getElementById('graphicResumeView');
+      var btnPaper = document.getElementById('btnPaperView');
+      var btnGraphic = document.getElementById('btnGraphicView');
+
+      if (view === 'graphic') {
+        paperView.style.display = 'none';
+        graphicView.classList.add('active');
+        btnGraphic.classList.add('active');
+        btnPaper.classList.remove('active');
+      } else {
+        paperView.style.display = 'block';
+        graphicView.classList.remove('active');
+        btnPaper.classList.add('active');
+        btnGraphic.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
