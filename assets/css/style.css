@@ -642,6 +642,34 @@ button,
 .hero {
   padding: 56px 0 56px;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 75% 65% at 75% 45%, rgba(56, 189, 248, 0.09) 0%, transparent 70%),
+    radial-gradient(ellipse 65% 55% at 20% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(11, 13, 19, 0.15) 0%, rgba(11, 13, 19, 0.5) 75%, var(--bg) 100%);
+}
+
+.hero .wrap {
+  position: relative;
+  z-index: 2;
 }
 
 @media(max-width:900px) {
@@ -857,24 +885,46 @@ button,
   box-shadow: 0 0 20px rgba(34, 211, 154, 0.2) !important;
 }
 
-/* 3D hero frame */
+/* 3D hero frame - Floating Seamless Integration */
 .hero-3d {
   position: relative;
   min-height: 520px;
-  border-radius: 24px;
-  overflow: hidden;
-  background:
-    radial-gradient(580px 420px at 58% 42%, rgba(56, 189, 248, .16), transparent 70%),
-    radial-gradient(380px 300px at 30% 75%, rgba(99, 102, 241, .12), transparent 68%),
-    linear-gradient(175deg, #161922 0%, #0e1118 100%);
-  border: 1px solid rgba(255, 255, 255, .09);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, .06),
-    0 32px 84px rgba(0, 0, 0, .6),
-    0 0 60px rgba(56, 189, 248, .08);
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   cursor: grab;
   user-select: none;
   touch-action: none;
+}
+
+.hero-3d::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 480px;
+  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.22) 0%, rgba(129, 140, 248, 0.12) 38%, transparent 70%);
+  filter: blur(45px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+  animation: heroGlowPulse 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowPulse {
+  0% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
 }
 
 .hero-3d:active {
@@ -922,11 +972,13 @@ button,
   gap: 8px;
   font-size: 11px;
   color: #a8b8d0;
-  background: rgba(12, 15, 22, .78);
-  border: 1px solid rgba(255, 255, 255, .09);
-  padding: 7px 13px;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
+  background: rgba(12, 16, 26, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  padding: 6px 14px;
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   pointer-events: none;
 }
 
@@ -1238,6 +1290,312 @@ section {
 
 .pro:hover .pc-img {
   transform: scale(1.1);
+}
+
+/* ========== MOBILE APP SCREEN DESIGN SHOWCASES ========== */
+.pc-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  perspective: 1200px;
+  overflow: hidden;
+  user-select: none;
+  z-index: 2;
+}
+
+.pc-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+  transition: opacity 0.5s ease;
+}
+
+.pro:hover .pc-glow {
+  opacity: 0.95;
+}
+
+.screen-deck {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotateY(-8deg) rotateX(3deg) translateZ(10px);
+  margin-right: 40px;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pro:hover .screen-deck {
+  transform: rotateY(-2deg) rotateX(1deg) translateZ(28px) scale(1.03);
+}
+
+/* Individual App Screen Frame */
+.app-screen {
+  width: 256px;
+  height: 338px;
+  background: #0c1018;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #e2e8f0;
+}
+
+.app-screen.primary-screen {
+  z-index: 3;
+  transform: translateZ(20px);
+}
+
+.app-screen.secondary-screen {
+  position: absolute;
+  right: -75px;
+  top: -24px;
+  width: 236px;
+  height: 326px;
+  z-index: 1;
+  opacity: 0.75;
+  filter: brightness(0.85);
+  transform: translateZ(-30px) rotate(6.5deg);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+}
+
+.pro:hover .app-screen.secondary-screen {
+  transform: translateZ(-12px) rotate(8.5deg) translateX(18px);
+  opacity: 0.92;
+  filter: none;
+}
+
+@media(max-width: 640px) {
+  .app-screen.secondary-screen {
+    display: none;
+  }
+
+  .app-screen.primary-screen {
+    transform: none;
+  }
+
+  .screen-deck {
+    transform: none;
+    margin-right: 0;
+  }
+}
+
+/* Screen Top Status Bar */
+.as-status-bar {
+  padding: 8px 14px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+}
+
+.as-notch {
+  width: 48px;
+  height: 9px;
+  background: #000;
+  border-radius: 999px;
+  margin: 0 auto;
+}
+
+.as-icons {
+  display: flex;
+  gap: 4px;
+  font-size: 8px;
+}
+
+/* Screen App Header */
+.as-header {
+  padding: 6px 14px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.as-title {
+  font-size: 11.5px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.as-badge {
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Screen Body & Cards */
+.as-body {
+  padding: 9px 11px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow: hidden;
+}
+
+.as-card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 7px 9px;
+  position: relative;
+}
+
+.as-label {
+  font-size: 7.5px;
+  font-weight: 650;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.as-metric {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 1px;
+}
+
+.as-metric-sub {
+  font-size: 8px;
+  font-weight: 650;
+}
+
+.as-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-pill-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.as-pill {
+  font-size: 7.5px;
+  padding: 2.5px 6px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+}
+
+/* Micro Mini Graph / Chart */
+.as-chart-svg {
+  width: 100%;
+  height: 36px;
+  display: block;
+}
+
+/* Micro list items */
+.as-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.as-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 8px;
+  padding: 3.5px 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.as-item-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.as-item-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 7.5px;
+}
+
+/* Bottom Tab Bar */
+.as-tabbar {
+  padding: 5px 12px 7px;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(12, 16, 24, 0.95);
+  font-size: 11px;
+}
+
+.as-tab {
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+
+.as-tab.active {
+  opacity: 1;
+  color: #38bdf8;
+}
+
+/* Floating Glass Badges */
+.pc-float-chip {
+  position: absolute;
+  padding: 5px 11px;
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #f1f5f9;
+  z-index: 4;
+  transform: translateZ(45px);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.pc-float-chip.chip-1 {
+  top: 18px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) translateZ(45px);
+  transition: transform 0.4s ease;
+}
+
+.pro:hover .pc-float-chip.chip-1 {
+  transform: translateX(-50%) translateZ(60px) scale(1.05);
+}
+
+@media(max-width: 900px) {
+  .pc-float-chip {
+    display: none;
+  }
 }
 
 .pc-big-n {

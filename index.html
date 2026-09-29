@@ -175,7 +175,9 @@
 
     <main id="top">
       <!-- 1. HERO SECTION -->
-      <section class="hero">
+      <section class="hero" id="hero">
+        <canvas id="heroBgCanvas" class="hero-bg-canvas" aria-hidden="true"></canvas>
+        <div class="hero-bg-overlay" aria-hidden="true"></div>
         <div class="wrap">
           <div class="hero-grid">
             <div class="hero-left">
@@ -237,7 +239,8 @@
 
             <!-- 3D Interactive Canvas -->
             <div class="hero-3d">
-              <img class="hero-3d-fallback" src="assets/images/hero-3d-phone.jpg" alt="Mohammad Sheraz — 3D Flutter Smartphone Application Showcase">
+              <img class="hero-3d-fallback" src="assets/images/hero-3d-phone.jpg"
+                alt="Mohammad Sheraz — 3D Flutter Smartphone Application Showcase">
               <div class="h3d-top">
                 <span class="h3d-live"></span>
                 <b>Flutter 3D Device</b> · Impeller GPU Engine
@@ -277,12 +280,113 @@
                     Live</span></div>
               </div>
               <div class="pc-visual">
+                <div class="pc-glow"
+                  style="background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(56, 189, 248, 0.28) 0%, transparent 70%);">
+                </div>
                 <div class="pc-visual-inner">
-                  <div class="pc-img" style="background: linear-gradient(135deg, #18223d 0%, #0d121f 100%);"></div>
+                  <div class="pc-stage">
+                    <div class="pc-float-chip chip-1">⚡ 60 FPS Impeller Engine</div>
+                    <div class="screen-deck">
+                      <!-- Screen 1: Home Dashboard -->
+                      <div class="app-screen primary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span><span>100%</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">ExpenseManager</span>
+                          <span class="as-badge" style="background:rgba(56,189,248,0.18); color:#38bdf8;">Home
+                            Screen</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card"
+                            style="background: linear-gradient(135deg, rgba(56,189,248,0.14), rgba(99,102,241,0.08)); border-color: rgba(56,189,248,0.24);">
+                            <div class="as-label">Total Cashflow</div>
+                            <div class="as-metric">$24,850.50</div>
+                            <div class="as-metric-sub" style="color:#38bdf8;">▲ +14.8% vs last month</div>
+                          </div>
+                          <!-- Spline Cashflow Chart SVG -->
+                          <svg class="as-chart-svg" viewBox="0 0 200 40" fill="none">
+                            <defs>
+                              <linearGradient id="emGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+                              </linearGradient>
+                            </defs>
+                            <path d="M0,32 Q35,8 70,22 T140,12 T200,6 L200,40 L0,40 Z" fill="url(#emGrad)" />
+                            <path d="M0,32 Q35,8 70,22 T140,12 T200,6" stroke="#38bdf8" stroke-width="2"
+                              stroke-linecap="round" />
+                          </svg>
+                          <div class="as-pill-row">
+                            <span class="as-pill" style="color:#38bdf8; border-color:rgba(56,189,248,0.3);">+ Add</span>
+                            <span class="as-pill">Transfer</span>
+                            <span class="as-pill">Analytics</span>
+                            <span class="as-pill">Budget</span>
+                          </div>
+                          <div class="as-list">
+                            <div class="as-item">
+                              <div class="as-item-left">
+                                <div class="as-item-icon" style="background:rgba(239,68,68,0.15); color:#f87171;">🛍️
+                                </div>
+                                <span>Apple Store</span>
+                              </div>
+                              <b style="color:#f87171;">-$129.00</b>
+                            </div>
+                            <div class="as-item">
+                              <div class="as-item-left">
+                                <div class="as-item-icon" style="background:rgba(34,197,94,0.15); color:#4ade80;">💼
+                                </div>
+                                <span>Stripe Payout</span>
+                              </div>
+                              <b style="color:#4ade80;">+$3,450.00</b>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="as-tabbar">
+                          <span class="as-tab active">Home</span>
+                          <span class="as-tab">Analytics</span>
+                          <span class="as-tab">Cards</span>
+                          <span class="as-tab">Profile</span>
+                        </div>
+                      </div>
+
+                      <!-- Screen 2: Analytics & Budget Screen -->
+                      <div class="app-screen secondary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">Monthly Analytics</span>
+                          <span class="as-badge" style="background:rgba(99,102,241,0.2); color:#a5b4fc;">Report</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card">
+                            <div class="as-label">Monthly Savings Goal</div>
+                            <div class="as-metric" style="font-size:13px; color:#4ade80;">84% Achieved</div>
+                            <div
+                              style="height:4px; background:rgba(255,255,255,0.08); border-radius:999px; margin-top:4px;">
+                              <div style="width:84%; height:100%; background:#22c55e; border-radius:999px;"></div>
+                            </div>
+                          </div>
+                          <div class="as-card">
+                            <div class="as-label">Categories</div>
+                            <div style="font-size:8px; display:flex; flex-direction:column; gap:3px; margin-top:3px;">
+                              <div class="as-row"><span>🍔 Dining</span><b>34%</b></div>
+                              <div class="as-row"><span>💻 Cloud/Tech</span><b>28%</b></div>
+                              <div class="as-row"><span>✈️ Travel</span><b>18%</b></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="pc-big-n" aria-hidden="true">01</div>
                 <div class="pc-shot-title">ExpenseManager</div>
-                <div class="pc-year-tag">Cash Budget & Real-time Analytics</div>
+                <div class="pc-year-tag">Home & Analytics App Design</div>
               </div>
               <div class="pc-body">
                 <div class="pc-eyebrow">FINTECH PLATFORM · CROSS-PLATFORM</div>
@@ -312,12 +416,100 @@
                       class="live-dot" style="background:#ffbd2e;"></span> Production</span></div>
               </div>
               <div class="pc-visual">
+                <div class="pc-glow"
+                  style="background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(34, 197, 94, 0.24) 0%, transparent 70%);">
+                </div>
                 <div class="pc-visual-inner">
-                  <div class="pc-img" style="background: linear-gradient(135deg, #1a2528 0%, #0c1518 100%);"></div>
+                  <div class="pc-stage">
+                    <div class="pc-float-chip chip-1">📍 GPS Geofencing 150m</div>
+                    <div class="screen-deck">
+                      <!-- Screen 1: Attendance Dashboard -->
+                      <div class="app-screen primary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span><span>100%</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">WorkforcePro</span>
+                          <span class="as-badge" style="background:rgba(34,197,94,0.18); color:#4ade80;">On-Site
+                            HQ</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card"
+                            style="background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(16,185,129,0.06)); border-color: rgba(34,197,94,0.22); text-align:center;">
+                            <div class="as-label">Biometric Verification</div>
+                            <div style="font-size:22px; margin:4px 0;">🛡️</div>
+                            <div class="as-metric" style="font-size:13px; color:#4ade80;">Clocked In: 09:12 AM</div>
+                            <div class="as-metric-sub" style="color:#86efac;">Verified via Office Geofence</div>
+                          </div>
+                          <div class="as-card">
+                            <div class="as-row">
+                              <span class="as-label">Working Hours</span>
+                              <span style="font-size:8px; font-weight:700; color:#38bdf8;">38.5 / 40.0h</span>
+                            </div>
+                            <div
+                              style="height:4px; background:rgba(255,255,255,0.08); border-radius:999px; margin-top:5px;">
+                              <div style="width:92%; height:100%; background:#38bdf8; border-radius:999px;"></div>
+                            </div>
+                          </div>
+                          <div class="as-list">
+                            <div class="as-item">
+                              <div class="as-item-left">
+                                <span style="font-size:9px;">🟢</span>
+                                <span>Sarah L. — Design Lead</span>
+                              </div>
+                              <span style="color:#94a3b8; font-size:7.5px;">Active</span>
+                            </div>
+                            <div class="as-item">
+                              <div class="as-item-left">
+                                <span style="font-size:9px;">🟢</span>
+                                <span>David K. — Backend Eng</span>
+                              </div>
+                              <span style="color:#94a3b8; font-size:7.5px;">Active</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="as-tabbar">
+                          <span class="as-tab active">Punch</span>
+                          <span class="as-tab">Team</span>
+                          <span class="as-tab">Leaves</span>
+                          <span class="as-tab">Profile</span>
+                        </div>
+                      </div>
+
+                      <!-- Screen 2: Employee Profile & Leaves -->
+                      <div class="app-screen secondary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">Employee Profile</span>
+                          <span class="as-badge" style="background:rgba(56,189,248,0.2); color:#7dd3fc;">About
+                            Page</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card" style="text-align:center;">
+                            <div
+                              style="width:36px; height:36px; border-radius:50%; background:#38bdf822; margin:0 auto 4px; display:grid; place-items:center; font-size:16px;">
+                              👨‍💻</div>
+                            <b style="font-size:10.5px; display:block;">Mohammad Sheraz</b>
+                            <span style="font-size:7.5px; color:#94a3b8;">Senior Mobile Architect</span>
+                          </div>
+                          <div class="as-card">
+                            <div class="as-label">Leave Balance</div>
+                            <div class="as-metric" style="font-size:12px; color:#facc15;">14 / 20 Days</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="pc-big-n" aria-hidden="true">02</div>
                 <div class="pc-shot-title">HRMS Mobile</div>
-                <div class="pc-year-tag">Workforce & Biometric Geofencing</div>
+                <div class="pc-year-tag">Attendance & Profile App Design</div>
               </div>
               <div class="pc-body">
                 <div class="pc-eyebrow">ENTERPRISE SAAS · WORKFORCE</div>
@@ -346,12 +538,104 @@
                     Ticker</span></div>
               </div>
               <div class="pc-visual">
+                <div class="pc-glow"
+                  style="background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(168, 85, 247, 0.28) 0%, transparent 70%);">
+                </div>
                 <div class="pc-visual-inner">
-                  <div class="pc-img" style="background: linear-gradient(135deg, #2b1b38 0%, #150d1e 100%);"></div>
+                  <div class="pc-stage">
+                    <div class="pc-float-chip chip-1">⚡ WebSocket Stream &lt; 100ms</div>
+                    <div class="screen-deck">
+                      <!-- Screen 1: Market Trading Terminal -->
+                      <div class="app-screen primary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span><span>100%</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">TradePulse</span>
+                          <span class="as-badge" style="background:rgba(168,85,247,0.2); color:#c084fc;">Terminal
+                            Page</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card"
+                            style="background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(99,102,241,0.08)); border-color: rgba(168,85,247,0.22);">
+                            <div class="as-row">
+                              <span class="as-label">BTC / USDT</span>
+                              <span style="font-size:7.5px; color:#4ade80; font-weight:700;">▲ +3.42%</span>
+                            </div>
+                            <div class="as-metric" style="color:#f8fafc;">$68,450.20</div>
+                          </div>
+                          <!-- Candlestick Visualizer SVG -->
+                          <svg class="as-chart-svg" viewBox="0 0 200 40" fill="none">
+                            <line x1="20" y1="4" x2="20" y2="34" stroke="#22c55e" stroke-width="1.2" />
+                            <rect x="16" y="10" width="8" height="16" fill="#22c55e" rx="1.5" />
+                            <line x1="50" y1="8" x2="50" y2="36" stroke="#ef4444" stroke-width="1.2" />
+                            <rect x="46" y="14" width="8" height="18" fill="#ef4444" rx="1.5" />
+                            <line x1="80" y1="6" x2="80" y2="32" stroke="#22c55e" stroke-width="1.2" />
+                            <rect x="76" y="8" width="8" height="20" fill="#22c55e" rx="1.5" />
+                            <line x1="110" y1="2" x2="110" y2="38" stroke="#22c55e" stroke-width="1.2" />
+                            <rect x="106" y="6" width="8" height="22" fill="#22c55e" rx="1.5" />
+                            <line x1="140" y1="12" x2="140" y2="35" stroke="#ef4444" stroke-width="1.2" />
+                            <rect x="136" y="16" width="8" height="14" fill="#ef4444" rx="1.5" />
+                            <line x1="170" y1="4" x2="170" y2="30" stroke="#22c55e" stroke-width="1.2" />
+                            <rect x="166" y="8" width="8" height="18" fill="#22c55e" rx="1.5" />
+                            <!-- Moving Average line -->
+                            <path d="M10,24 Q50,18 90,14 T170,10" stroke="#facc15" stroke-width="1.5"
+                              stroke-dasharray="3 2" />
+                          </svg>
+                          <div class="as-row" style="margin-top:2px;">
+                            <div
+                              style="flex:1; background:#22c55e; color:#000; font-size:8px; font-weight:800; text-align:center; padding:4px; border-radius:6px;">
+                              BUY / LONG</div>
+                            <div
+                              style="flex:1; background:#ef4444; color:#fff; font-size:8px; font-weight:800; text-align:center; padding:4px; border-radius:6px;">
+                              SELL / SHORT</div>
+                          </div>
+                        </div>
+                        <div class="as-tabbar">
+                          <span class="as-tab active">Trade</span>
+                          <span class="as-tab">Markets</span>
+                          <span class="as-tab">Orders</span>
+                          <span class="as-tab">Wallet</span>
+                        </div>
+                      </div>
+
+                      <!-- Screen 2: Crypto Watchlist Screen -->
+                      <div class="app-screen secondary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">Watchlist</span>
+                          <span class="as-badge" style="background:rgba(34,197,94,0.18); color:#4ade80;">Top
+                            Movers</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-list">
+                            <div class="as-item">
+                              <span>ETH / USDT</span>
+                              <b style="color:#4ade80;">$3,520.10 ▲</b>
+                            </div>
+                            <div class="as-item">
+                              <span>SOL / USDT</span>
+                              <b style="color:#4ade80;">$178.40 ▲</b>
+                            </div>
+                            <div class="as-item">
+                              <span>AVAX / USDT</span>
+                              <b style="color:#f87171;">$34.80 ▼</b>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="pc-big-n" aria-hidden="true">03</div>
                 <div class="pc-shot-title">TradePulse</div>
-                <div class="pc-year-tag">High-Frequency Market Terminal</div>
+                <div class="pc-year-tag">Market Terminal App Design</div>
               </div>
               <div class="pc-body">
                 <div class="pc-eyebrow">CAPITAL MARKETS · HIGH SPEED</div>
@@ -380,12 +664,91 @@
                     Powered</span></div>
               </div>
               <div class="pc-visual">
+                <div class="pc-glow"
+                  style="background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(20, 184, 166, 0.28) 0%, transparent 70%);">
+                </div>
                 <div class="pc-visual-inner">
-                  <div class="pc-img" style="background: linear-gradient(135deg, #172d2b 0%, #0d1a19 100%);"></div>
+                  <div class="pc-stage">
+                    <div class="pc-float-chip chip-1">✨ Google Gemini LLM API</div>
+                    <div class="screen-deck">
+                      <!-- Screen 1: Course & AI Chat -->
+                      <div class="app-screen primary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span><span>100%</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">NovaLearn AI</span>
+                          <span class="as-badge" style="background:rgba(20,184,166,0.18); color:#2dd4bf;">Learning
+                            Page</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card"
+                            style="background: linear-gradient(135deg, rgba(20,184,166,0.12), rgba(99,102,241,0.06)); border-color: rgba(20,184,166,0.22);">
+                            <div class="as-label">Active Masterclass</div>
+                            <div class="as-metric" style="font-size:12px;">Flutter Clean Architecture</div>
+                            <div class="as-metric-sub" style="color:#2dd4bf;">Progress: 78% · 12 Lessons</div>
+                          </div>
+                          <!-- AI Message Bubble -->
+                          <div class="as-card"
+                            style="background:rgba(99,102,241,0.12); border-color:rgba(99,102,241,0.22);">
+                            <div class="as-label" style="color:#818cf8;">Gemini AI Tutor:</div>
+                            <p style="font-size:8px; line-height:1.35; margin-top:2px; color:#e0e7ff;">"Let's test how
+                              Riverpod StateNotifier handles immutable state transitions!"</p>
+                          </div>
+                          <!-- Quiz Pill Card -->
+                          <div class="as-card" style="background:rgba(255,255,255,0.04);">
+                            <div class="as-row">
+                              <span style="font-size:8px; font-weight:700;">Question 4 of 10</span>
+                              <span class="as-badge" style="background:#22c55e22; color:#4ade80;">Active</span>
+                            </div>
+                            <p style="font-size:8px; margin-top:3px; color:#94a3b8;">What ensures Sound Null Safety in
+                              Dart?</p>
+                          </div>
+                        </div>
+                        <div class="as-tabbar">
+                          <span class="as-tab active">Courses</span>
+                          <span class="as-tab">AI Chat</span>
+                          <span class="as-tab">Audio</span>
+                          <span class="as-tab">Profile</span>
+                        </div>
+                      </div>
+
+                      <!-- Screen 2: Audio Tutor Waveform Screen -->
+                      <div class="app-screen secondary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">Audio Explanation</span>
+                          <span class="as-badge" style="background:rgba(56,189,248,0.2); color:#7dd3fc;">1.5x
+                            Speed</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card" style="text-align:center;">
+                            <div class="as-label">Audio Synth Player</div>
+                            <div
+                              style="display:flex; justify-content:center; align-items:center; gap:2.5px; height:24px; margin:8px 0;">
+                              <span style="width:3px; height:8px; background:#2dd4bf; border-radius:99px;"></span>
+                              <span style="width:3px; height:18px; background:#2dd4bf; border-radius:99px;"></span>
+                              <span style="width:3px; height:24px; background:#2dd4bf; border-radius:99px;"></span>
+                              <span style="width:3px; height:12px; background:#2dd4bf; border-radius:99px;"></span>
+                              <span style="width:3px; height:20px; background:#2dd4bf; border-radius:99px;"></span>
+                              <span style="width:3px; height:10px; background:#2dd4bf; border-radius:99px;"></span>
+                            </div>
+                            <span style="font-size:7.5px; color:#94a3b8;">02:14 / 04:30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="pc-big-n" aria-hidden="true">04</div>
                 <div class="pc-shot-title">NovaLearn</div>
-                <div class="pc-year-tag">Contextual Agentic Education</div>
+                <div class="pc-year-tag">AI Tutor & Course App Design</div>
               </div>
               <div class="pc-body">
                 <div class="pc-eyebrow">EDTECH & AI INTEGRATION · MOBILE</div>
@@ -414,12 +777,96 @@
                     Deployed</span></div>
               </div>
               <div class="pc-visual">
+                <div class="pc-glow"
+                  style="background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(245, 158, 11, 0.25) 0%, transparent 70%);">
+                </div>
                 <div class="pc-visual-inner">
-                  <div class="pc-img" style="background: linear-gradient(135deg, #2e2617 0%, #17120a 100%);"></div>
+                  <div class="pc-stage">
+                    <div class="pc-float-chip chip-1">📊 Multi-Asset Portfolio</div>
+                    <div class="screen-deck">
+                      <!-- Screen 1: Portfolio Dashboard -->
+                      <div class="app-screen primary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span><span>100%</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">WealthFlow</span>
+                          <span class="as-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24;">Portfolio
+                            Page</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card"
+                            style="background: linear-gradient(135deg, rgba(245,158,11,0.14), rgba(217,119,6,0.06)); border-color: rgba(245,158,11,0.24);">
+                            <div class="as-label">Total Net Worth</div>
+                            <div class="as-metric" style="color:#fbbf24;">$184,920.00</div>
+                            <div class="as-metric-sub" style="color:#fde68a;">▲ +$18,400 (YTD Return)</div>
+                          </div>
+                          <!-- Asset Distribution Donut SVG -->
+                          <div class="as-card">
+                            <div class="as-row" style="margin-bottom:4px;">
+                              <span class="as-label">Asset Allocation</span>
+                              <span style="font-size:7.5px; color:#fbbf24;">4 Classes</span>
+                            </div>
+                            <div style="height:6px; display:flex; border-radius:999px; overflow:hidden;">
+                              <div style="width:45%; background:#38bdf8;" title="Equities 45%"></div>
+                              <div style="width:25%; background:#fbbf24;" title="Real Estate 25%"></div>
+                              <div style="width:20%; background:#a855f7;" title="Tech/Crypto 20%"></div>
+                              <div style="width:10%; background:#22c55e;" title="Cash 10%"></div>
+                            </div>
+                            <div
+                              style="font-size:7.5px; display:flex; justify-content:space-between; margin-top:5px; color:#94a3b8;">
+                              <span>📈 Equity 45%</span>
+                              <span>🏢 Property 25%</span>
+                              <span>🪙 Crypto 20%</span>
+                            </div>
+                          </div>
+                          <div class="as-list">
+                            <div class="as-item">
+                              <span>Vanguard S&P 500 ETF</span>
+                              <b style="color:#4ade80;">$72,400.00</b>
+                            </div>
+                            <div class="as-item">
+                              <span>Gold Reserve Bullion</span>
+                              <b style="color:#fbbf24;">$18,500.00</b>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="as-tabbar">
+                          <span class="as-tab active">Assets</span>
+                          <span class="as-tab">Dividends</span>
+                          <span class="as-tab">Tax</span>
+                          <span class="as-tab">Profile</span>
+                        </div>
+                      </div>
+
+                      <!-- Screen 2: Dividend Calendar Screen -->
+                      <div class="app-screen secondary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">Dividend Forecast</span>
+                          <span class="as-badge" style="background:rgba(34,197,94,0.2); color:#4ade80;">Payouts</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card">
+                            <div class="as-label">Upcoming Payout</div>
+                            <b style="font-size:10px; display:block; margin-top:2px;">Apple Inc. (AAPL)</b>
+                            <span style="font-size:11px; color:#4ade80; font-weight:800;">+$240.00</span>
+                            <span style="font-size:7px; color:#94a3b8; display:block;">Est. Date: Nov 15</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="pc-big-n" aria-hidden="true">05</div>
                 <div class="pc-shot-title">WealthFlow</div>
-                <div class="pc-year-tag">Multi-Asset Wealth Manager</div>
+                <div class="pc-year-tag">Wealth Portfolio App Design</div>
               </div>
               <div class="pc-body">
                 <div class="pc-eyebrow">WEALTH MANAGEMENT · INVESTING</div>
@@ -448,12 +895,85 @@
                     Utility</span></div>
               </div>
               <div class="pc-visual">
+                <div class="pc-glow"
+                  style="background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(56, 189, 248, 0.22) 0%, transparent 70%);">
+                </div>
                 <div class="pc-visual-inner">
-                  <div class="pc-img" style="background: linear-gradient(135deg, #1b2133 0%, #0d101a 100%);"></div>
+                  <div class="pc-stage">
+                    <div class="pc-float-chip chip-1">📷 On-Device ML Kit OCR</div>
+                    <div class="screen-deck">
+                      <!-- Screen 1: One-Hand Gesture Budget -->
+                      <div class="app-screen primary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span><span>100%</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">ExpenseFlow</span>
+                          <span class="as-badge" style="background:rgba(56,189,248,0.18); color:#38bdf8;">Budget
+                            Page</span>
+                        </div>
+                        <div class="as-body">
+                          <div class="as-card" style="text-align:center;">
+                            <div class="as-label">Monthly Allowance Left</div>
+                            <div class="as-metric" style="font-size:18px; color:#38bdf8;">$1,820.00</div>
+                            <span style="font-size:7.5px; color:#94a3b8;">of $3,500.00 Limit (52% Left)</span>
+                          </div>
+                          <div class="as-card"
+                            style="background:rgba(56,189,248,0.06); border-color:rgba(56,189,248,0.2);">
+                            <div class="as-row">
+                              <span style="font-size:7.5px; font-weight:700; color:#38bdf8;">⚡ Fluid Gestures</span>
+                              <span style="font-size:7px; color:#94a3b8;">Haptic Ready</span>
+                            </div>
+                            <div style="font-size:7.5px; color:#cbd5e1; margin-top:2px;">Swipe ➔ Split | Swipe ⬅
+                              Categorize</div>
+                          </div>
+                          <div class="as-list">
+                            <div class="as-item">
+                              <span>☕ Morning Coffee</span>
+                              <b style="color:#f87171;">-$4.50</b>
+                            </div>
+                            <div class="as-item">
+                              <span>⛽ Gas & Fuel</span>
+                              <b style="color:#f87171;">-$32.00</b>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="as-tabbar">
+                          <span class="as-tab active">Budget</span>
+                          <span class="as-tab">OCR Scan</span>
+                          <span class="as-tab">Timeline</span>
+                        </div>
+                      </div>
+
+                      <!-- Screen 2: Receipt OCR Scan Screen -->
+                      <div class="app-screen secondary-screen">
+                        <div class="as-status-bar">
+                          <span>09:41</span>
+                          <div class="as-notch"></div>
+                          <div class="as-icons"><span>5G</span></div>
+                        </div>
+                        <div class="as-header">
+                          <span class="as-title">Receipt OCR Scanner</span>
+                          <span class="as-badge" style="background:rgba(34,197,94,0.2); color:#4ade80;">Scan Page</span>
+                        </div>
+                        <div class="as-body">
+                          <!-- Camera scanner frame -->
+                          <div class="as-card"
+                            style="height:90px; border:1px dashed #22c55e; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+                            <span style="font-size:16px;">📷</span>
+                            <b style="font-size:8px; margin-top:2px; color:#4ade80;">Auto-Extracted $84.50</b>
+                            <span style="font-size:6.5px; color:#94a3b8;">Merchant: Apple Store</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="pc-big-n" aria-hidden="true">06</div>
                 <div class="pc-shot-title">ExpenseFlow</div>
-                <div class="pc-year-tag">Minimalist Gesture Budget App</div>
+                <div class="pc-year-tag">Gesture & OCR App Design</div>
               </div>
               <div class="pc-body">
                 <div class="pc-eyebrow">CONSUMER UTILITY · GESTURES</div>

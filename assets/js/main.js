@@ -223,13 +223,22 @@
       rimGeo.center();
       var rimMat = new THREE.MeshStandardMaterial({
         color: 0x38bdf8,
-        metalness: 0.9,
-        roughness: 0.15,
+        metalness: 0.94,
+        roughness: 0.12,
         emissive: 0x0284c7,
-        emissiveIntensity: 0.35
+        emissiveIntensity: 0.52
       });
       var outerRim = new THREE.Mesh(rimGeo, rimMat);
       phoneGroup.add(outerRim);
+
+      // Ambient Underglow & Surrounding Halo Light to make phone stand out
+      var underglowLight = new THREE.PointLight(0x00f2fe, 2.2, 8);
+      underglowLight.position.set(0, 0, -0.6);
+      phoneGroup.add(underglowLight);
+
+      var topRimGlow = new THREE.PointLight(0x818cf8, 1.6, 7);
+      topRimGlow.position.set(0, 2.2, 0.4);
+      phoneGroup.add(topRimGlow);
 
       // Side buttons (Power, Volume Rocker, Action)
       var btnMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.8, roughness: 0.3 });
@@ -830,6 +839,27 @@
         isInteracting = false;
       });
 
+      // --- INTRO 360° ROTATION SHOWCASE REVEAL ---
+      var introDuration = 2.4; // 2.4 seconds smooth full 360-degree showcase spin
+      var introActive = true;
+      var introStartTime = null;
+
+      function startIntroRotation() {
+        if (!introStartTime) {
+          introStartTime = performance.now();
+        }
+      }
+
+      document.addEventListener('page:ready', function () {
+        setTimeout(startIntroRotation, 60);
+      });
+
+      if (window.__pageReady) {
+        startIntroRotation();
+      } else {
+        setTimeout(startIntroRotation, 800);
+      }
+
       // --- ANIMATION LOOP ---
       var clock = new THREE.Clock();
 
@@ -841,6 +871,28 @@
         // Screen UI updates
         updateScreen(elapsedTime);
 
+        // Calculate intro 360-degree rotation
+        var introRotY = 0;
+        var introScale = 1;
+
+        if (introActive && introStartTime) {
+          var introElapsed = (performance.now() - introStartTime) / 1000;
+          var introProgress = Math.min(Math.max(introElapsed / introDuration, 0), 1);
+
+          // Quartic ease-out: lively spin at first, gently cushions into neutral position
+          var ease = 1 - Math.pow(1 - introProgress, 4);
+
+          // 360-degree spin (2 * Math.PI) down to 0
+          introRotY = (1 - ease) * Math.PI * 2;
+          introScale = 0.86 + ease * 0.14;
+
+          if (introProgress >= 1) {
+            introActive = false;
+          }
+        }
+
+        phoneGroup.scale.set(introScale, introScale, introScale);
+
         // Smooth rotation damping with lerp
         currentRotX += (targetRotX - currentRotX) * 0.06;
         currentRotY += (targetRotY - currentRotY) * 0.06;
@@ -850,7 +902,7 @@
         var idleTilt = Math.sin(elapsedTime * 0.9) * 0.05;
 
         phoneGroup.position.y = idleBob;
-        phoneGroup.rotation.y = currentRotY + idleTilt;
+        phoneGroup.rotation.y = currentRotY + idleTilt + introRotY;
         phoneGroup.rotation.x = currentRotX;
         phoneGroup.rotation.z = -currentRotY * 0.15;
 
@@ -882,8 +934,286 @@
   })();
 
   /* ==========================================================================
-     5. MOBILE MENU
+     4B. HERO 3D ANIMATED BACKGROUND (WAVE MESH, FLOATING GEOMETRY & PARTICLES)
      ========================================================================== */
+  (function initHeroBackground3D() {
+    var canvas = document.getElementById('heroBgCanvas');
+    var heroSection = document.getElementById('hero') || (canvas && canvas.closest('.hero'));
+    if (!canvas || !heroSection || typeof THREE === 'undefined') return;
+
+    try {
+      var scene = new THREE.Scene();
+
+      var camera = new THREE.PerspectiveCamera(48, 1, 0.1, 1000);
+      camera.position.set(0, 0, 30);
+
+      var renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+
+      function resize() {
+        var w = heroSection.clientWidth || window.innerWidth;
+        var h = heroSection.clientHeight || window.innerHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      document.addEventListener('page:ready', resize);
+
+      // --- LIGHTING ---
+      var ambLight = new THREE.AmbientLight(0xdce7f9, 0.7);
+      scene.add(ambLight);
+
+      var dirLight1 = new THREE.DirectionalLight(0x38bdf8, 1.3);
+      dirLight1.position.set(12, 18, 22);
+      scene.add(dirLight1);
+
+      var dirLight2 = new THREE.DirectionalLight(0x818cf8, 1.1);
+      dirLight2.position.set(-16, -10, 18);
+      scene.add(dirLight2);
+
+      var mouseLight = new THREE.PointLight(0x00f2fe, 1.4, 45);
+      mouseLight.position.set(0, 0, 15);
+      scene.add(mouseLight);
+
+      var rootGroup = new THREE.Group();
+      scene.add(rootGroup);
+
+      // --- 1. 3D UNDULATING WAVE LATTICE (FLUTTER IMPELLER MESH) ---
+      var gridW = 86, gridH = 54, segW = 46, segH = 30;
+      var waveGeo = new THREE.PlaneGeometry(gridW, gridH, segW, segH);
+      var posAttr = waveGeo.attributes.position;
+      var vertexCount = posAttr.count;
+
+      // Cache original (x, y) coordinates
+      var basePositions = new Float32Array(vertexCount * 2);
+      for (var i = 0; i < vertexCount; i++) {
+        basePositions[i * 2] = posAttr.getX(i);
+        basePositions[i * 2 + 1] = posAttr.getY(i);
+      }
+
+      var waveMat = new THREE.MeshStandardMaterial({
+        color: 0x11274c,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.38,
+        roughness: 0.3,
+        metalness: 0.8
+      });
+      var waveMesh = new THREE.Mesh(waveGeo, waveMat);
+      waveMesh.rotation.x = -Math.PI / 2.45;
+      waveMesh.position.set(0, -9.5, -4);
+      rootGroup.add(waveMesh);
+
+      // Glowing vertex node points on top of wave
+      var pointMat = new THREE.PointsMaterial({
+        color: 0x38bdf8,
+        size: 0.16,
+        transparent: true,
+        opacity: 0.65,
+        sizeAttenuation: true
+      });
+      var wavePoints = new THREE.Points(waveGeo, pointMat);
+      waveMesh.add(wavePoints);
+
+      // --- 2. FLOATING 3D LOW-POLY GEOMETRIC CRYSTALS ---
+      var shapes = [];
+      var geometries = [
+        function () { return new THREE.IcosahedronGeometry(0.9 + Math.random() * 0.7, 0); },
+        function () { return new THREE.OctahedronGeometry(0.8 + Math.random() * 0.6, 0); },
+        function () { return new THREE.TorusGeometry(0.8 + Math.random() * 0.5, 0.14, 8, 20); },
+        function () { return new THREE.TetrahedronGeometry(0.9 + Math.random() * 0.6, 0); },
+        function () { return new THREE.DodecahedronGeometry(0.85 + Math.random() * 0.5, 0); }
+      ];
+
+      var colors = [
+        { color: 0x38bdf8, emissive: 0x0369a1 },
+        { color: 0x00f2fe, emissive: 0x0891b2 },
+        { color: 0x818cf8, emissive: 0x4f46e5 },
+        { color: 0x60a5fa, emissive: 0x2563eb }
+      ];
+
+      var shapeCount = 14;
+      for (var s = 0; s < shapeCount; s++) {
+        var geo = geometries[s % geometries.length]();
+        var col = colors[s % colors.length];
+
+        // Wireframe dual mesh
+        var matWire = new THREE.MeshStandardMaterial({
+          color: col.color,
+          emissive: col.emissive,
+          emissiveIntensity: 0.45,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.55,
+          metalness: 0.9,
+          roughness: 0.15
+        });
+
+        var mesh = new THREE.Mesh(geo, matWire);
+
+        // Core inner solid
+        var innerGeo = geo.clone();
+        innerGeo.scale(0.68, 0.68, 0.68);
+        var innerMat = new THREE.MeshStandardMaterial({
+          color: col.color,
+          emissive: col.emissive,
+          emissiveIntensity: 0.35,
+          transparent: true,
+          opacity: 0.22,
+          roughness: 0.2
+        });
+        mesh.add(new THREE.Mesh(innerGeo, innerMat));
+
+        // Spatial distribution around hero area (leaving center-right clear for phone)
+        var side = (s % 2 === 0) ? -1 : 1;
+        var posX = (side * (8 + Math.random() * 18));
+        var posY = (Math.random() * 22 - 9);
+        var posZ = (Math.random() * 22 - 12);
+
+        mesh.position.set(posX, posY, posZ);
+        rootGroup.add(mesh);
+
+        shapes.push({
+          mesh: mesh,
+          baseY: posY,
+          rotSpeedX: (Math.random() - 0.5) * 0.015,
+          rotSpeedY: (Math.random() - 0.5) * 0.018,
+          rotSpeedZ: (Math.random() - 0.5) * 0.012,
+          floatSpeed: 0.7 + Math.random() * 0.8,
+          floatAmp: 0.45 + Math.random() * 0.5,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+
+      // --- 3. 3D DEEP PARTICLE CLOUD (COSMIC DUST) ---
+      var pCount = 380;
+      var pGeo = new THREE.BufferGeometry();
+      var pPositions = new Float32Array(pCount * 3);
+      var pVelocities = new Float32Array(pCount);
+
+      for (var p = 0; p < pCount; p++) {
+        pPositions[p * 3] = (Math.random() - 0.5) * 80;
+        pPositions[p * 3 + 1] = (Math.random() - 0.5) * 44;
+        pPositions[p * 3 + 2] = (Math.random() - 0.5) * 36;
+        pVelocities[p] = 0.02 + Math.random() * 0.04;
+      }
+
+      pGeo.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+
+      var dustMat = new THREE.PointsMaterial({
+        color: 0x93c5fd,
+        size: 0.12,
+        transparent: true,
+        opacity: 0.55,
+        sizeAttenuation: true
+      });
+      var dustField = new THREE.Points(pGeo, dustMat);
+      rootGroup.add(dustField);
+
+      // --- 4. INTERACTION & MOUSE PARALLAX ---
+      var targetCamX = 0, targetCamY = 0;
+      var currentCamX = 0, currentCamY = 0;
+      var targetRotY = 0, targetRotX = 0;
+      var currentRotY = 0, currentRotX = 0;
+
+      function onMouseMove(e) {
+        var nx = (e.clientX / window.innerWidth - 0.5) * 2;
+        var ny = (e.clientY / window.innerHeight - 0.5) * 2;
+
+        targetCamX = nx * 2.8;
+        targetCamY = -ny * 2.0;
+
+        targetRotY = nx * 0.14;
+        targetRotX = -ny * 0.10;
+
+        mouseLight.position.x = nx * 14;
+        mouseLight.position.y = -ny * 10;
+      }
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
+
+      // Performance optimization via IntersectionObserver
+      var isHeroVisible = true;
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          isHeroVisible = entries[0].isIntersecting;
+        }, { threshold: 0.05 });
+        observer.observe(heroSection);
+      }
+
+      // --- ANIMATION LOOP ---
+      var clock = new THREE.Clock();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (!isHeroVisible) return;
+
+        var elapsed = clock.getElapsedTime();
+
+        // 1. Undulate 3D Wave Surface
+        for (var v = 0; v < vertexCount; v++) {
+          var vx = basePositions[v * 2];
+          var vy = basePositions[v * 2 + 1];
+          var waveHeight =
+            Math.sin(vx * 0.15 + elapsed * 1.1) * 1.6 +
+            Math.cos(vy * 0.22 + elapsed * 0.9) * 1.2 +
+            Math.sin((vx + vy) * 0.12 + elapsed * 0.75) * 0.8;
+          posAttr.setZ(v, waveHeight);
+        }
+        posAttr.needsUpdate = true;
+
+        // 2. Animate floating geometric crystals
+        for (var s = 0; s < shapes.length; s++) {
+          var item = shapes[s];
+          item.mesh.rotation.x += item.rotSpeedX;
+          item.mesh.rotation.y += item.rotSpeedY;
+          item.mesh.rotation.z += item.rotSpeedZ;
+          item.mesh.position.y = item.baseY + Math.sin(elapsed * item.floatSpeed + item.phase) * item.floatAmp;
+        }
+
+        // 3. Ambient dust particle drift
+        var pPos = pGeo.attributes.position.array;
+        for (var pi = 0; pi < pCount; pi++) {
+          pPos[pi * 3 + 2] += pVelocities[pi];
+          if (pPos[pi * 3 + 2] > 18) {
+            pPos[pi * 3 + 2] = -18;
+          }
+        }
+        pGeo.attributes.position.needsUpdate = true;
+        dustField.rotation.y = elapsed * 0.015;
+
+        // 4. Smooth camera / parallax damping
+        currentCamX += (targetCamX - currentCamX) * 0.045;
+        currentCamY += (targetCamY - currentCamY) * 0.045;
+        camera.position.x = currentCamX;
+        camera.position.y = currentCamY;
+
+        currentRotY += (targetRotY - currentRotY) * 0.04;
+        currentRotX += (targetRotX - currentRotX) * 0.04;
+        rootGroup.rotation.y = currentRotY;
+        rootGroup.rotation.x = currentRotX;
+
+        camera.lookAt(0, 0, 0);
+
+        renderer.render(scene, camera);
+      }
+
+      if (window.__portfolioStaticMode) {
+        renderer.render(scene, camera);
+      } else {
+        animate();
+      }
+    } catch (e) {
+      console.warn('Hero background 3D init skipped', e);
+    }
+  })();
   (function initMobileMenu() {
     var toggle = document.getElementById('navToggle');
     var menu = document.getElementById('mobileMenu');
