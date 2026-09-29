@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>Mohammad Sheraz — Senior Flutter Developer Resume</title>
-  <meta name="description" content="Resume of Mohammad Sheraz — Senior Flutter Developer & Cross-Platform Engineer specializing in high-performance iOS, Android, and Desktop applications with Dart, Firebase, and Clean Architecture.">
+  <meta name="description"
+    content="Resume of Mohammad Sheraz — Senior Flutter Developer & Cross-Platform Engineer specializing in high-performance iOS, Android, and Desktop applications with Dart, Firebase, and Clean Architecture.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,8 +26,15 @@
       --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
 
     body {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -37,7 +45,10 @@
       line-height: 1.5;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     :focus-visible {
       outline: 3px solid #7fdfff;
@@ -68,7 +79,11 @@
       z-index: 50;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
     .brand-mark {
       width: 36px;
@@ -83,10 +98,23 @@
       font-weight: 800;
     }
 
-    .brand-copy b { display: block; font-size: 14px; }
-    .brand-copy span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+    .brand-copy b {
+      display: block;
+      font-size: 14px;
+    }
 
-    .actions { display: flex; align-items: center; gap: 10px; }
+    .brand-copy span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .button {
       min-height: 42px;
@@ -106,7 +134,11 @@
       transition: transform .25s var(--ease), border-color .25s, background .25s;
     }
 
-    .button:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, .25); background: rgba(255, 255, 255, .08); }
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .25);
+      background: rgba(255, 255, 255, .08);
+    }
 
     .button.primary {
       color: white;
@@ -251,7 +283,9 @@
     }
 
     @media(max-width:540px) {
-      .skills-row { grid-template-columns: 1fr; }
+      .skills-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     .skills-row strong {
@@ -331,24 +365,31 @@
         color: #000000 !important;
         font-size: 11pt;
       }
-      .topbar, .view-switcher {
+
+      .topbar,
+      .view-switcher {
         display: none !important;
       }
+
       .viewer-shell {
         padding: 0 !important;
         max-width: 100% !important;
       }
+
       .paper-resume {
         box-shadow: none !important;
         border: none !important;
         padding: 0 !important;
       }
+
       .visual-preview-sheet {
         display: none !important;
       }
+
       .paper-resume-view {
         display: block !important;
       }
+
       a {
         text-decoration: none !important;
         color: #000000 !important;
@@ -375,7 +416,8 @@
 
     <main class="viewer-shell">
       <div class="view-switcher">
-        <button class="switch-btn active" id="btnPaperView" onclick="toggleView('paper')">Formatted Document View</button>
+        <button class="switch-btn active" id="btnPaperView" onclick="toggleView('paper')">Formatted Document
+          View</button>
         <button class="switch-btn" id="btnGraphicView" onclick="toggleView('graphic')">Original Visual Mockup</button>
       </div>
 
@@ -388,7 +430,8 @@
             <div class="paper-contact">
               <span>✉️ <a href="mailto:miansheraz8448@gmail.com">miansheraz8448@gmail.com</a></span>
               <span>📱 <a href="tel:+923217813079">+92 3217813079</a></span>
-              <span>🔗 <a href="https://github.com/Mian-Sheraz" target="_blank" rel="noopener">github.com/Mian-Sheraz</a></span>
+              <span>🔗 <a href="https://github.com/Mian-Sheraz" target="_blank"
+                  rel="noopener">github.com/Mian-Sheraz</a></span>
               <span>📍 Lahore, Pakistan</span>
             </div>
           </header>
@@ -397,7 +440,11 @@
           <section class="paper-section">
             <div class="paper-section-title">Professional Summary</div>
             <p>
-              Results-driven <strong>Senior Flutter Developer</strong> with extensive expertise in architecting and delivering high-performance, production-grade cross-platform applications across iOS, Android, and Desktop. Specialized in <strong>Clean Architecture (MVVM / BLoC / Riverpod)</strong>, offline-first data synchronization, custom UI rendering, and AI-powered workflow integration. Proven track record of shipping crash-free apps with scalable codebases and intuitive user experiences.
+              Results-driven <strong>Senior Flutter Developer</strong> with extensive expertise in architecting and
+              delivering high-performance, production-grade cross-platform applications across iOS, Android, and
+              Desktop. Specialized in <strong>Clean Architecture (MVVM / BLoC / Riverpod)</strong>, offline-first data
+              synchronization, custom UI rendering, and AI-powered workflow integration. Proven track record of shipping
+              crash-free apps with scalable codebases and intuitive user experiences.
             </p>
           </section>
 
@@ -406,7 +453,8 @@
             <div class="paper-section-title">Core Technical Competencies</div>
             <div class="skills-row">
               <strong>Languages:</strong>
-              <span>Dart (Strong Typing, Sound Null Safety, Metaprogramming), Java, Kotlin, Swift (Platform Channels), SQL, JavaScript</span>
+              <span>Dart (Strong Typing, Sound Null Safety, Metaprogramming), Java, Kotlin, Swift (Platform Channels),
+                SQL, JavaScript</span>
             </div>
             <div class="skills-row">
               <strong>Frameworks & State:</strong>
@@ -418,7 +466,8 @@
             </div>
             <div class="skills-row">
               <strong>Backend & Cloud:</strong>
-              <span>Firebase (Firestore, Cloud Functions, Auth, Crashlytics, Cloud Messaging), RESTful APIs (Dio, Retrofit), GraphQL, WebSockets</span>
+              <span>Firebase (Firestore, Cloud Functions, Auth, Crashlytics, Cloud Messaging), RESTful APIs (Dio,
+                Retrofit), GraphQL, WebSockets</span>
             </div>
             <div class="skills-row">
               <strong>Storage & Database:</strong>
@@ -426,7 +475,8 @@
             </div>
             <div class="skills-row">
               <strong>Tooling & CI/CD:</strong>
-              <span>Git, GitHub Actions, Fastlane, Docker, Postman, Figma, Android Studio, Xcode, Flutter DevTools</span>
+              <span>Git, GitHub Actions, Fastlane, Docker, Postman, Figma, Android Studio, Xcode, Flutter
+                DevTools</span>
             </div>
           </section>
 
@@ -440,11 +490,16 @@
                 <span class="date-loc">Jan 2024 — Present | Lahore, Pakistan</span>
               </div>
               <ul class="paper-bullets">
-                <li>Architected and delivered multi-module enterprise mobile applications using <strong>Flutter & Clean Architecture</strong>, reducing technical debt by 35%.</li>
-                <li>Engineered robust offline-first synchronization using <strong>Hive and Firebase Cloud Firestore</strong>, ensuring zero data loss during unstable network conditions.</li>
-                <li>Implemented state management using <strong>Riverpod & StateNotifier</strong>, optimizing widget rebuilds and maintaining an average frame rate of 60 FPS across legacy devices.</li>
-                <li>Integrated AI automation workflows (OpenAI & Google Gemini APIs) into customer-facing apps, enhancing user engagement by 40%.</li>
-                <li>Set up automated CI/CD pipelines via <strong>GitHub Actions and Fastlane</strong>, cutting deployment times from hours to 12 minutes.</li>
+                <li>Architected and delivered multi-module enterprise mobile applications using <strong>Flutter & Clean
+                    Architecture</strong>, reducing technical debt by 35%.</li>
+                <li>Engineered robust offline-first synchronization using <strong>Hive and Firebase Cloud
+                    Firestore</strong>, ensuring zero data loss during unstable network conditions.</li>
+                <li>Implemented state management using <strong>Riverpod & StateNotifier</strong>, optimizing widget
+                  rebuilds and maintaining an average frame rate of 60 FPS across legacy devices.</li>
+                <li>Integrated AI automation workflows (OpenAI & Google Gemini APIs) into customer-facing apps,
+                  enhancing user engagement by 40%.</li>
+                <li>Set up automated CI/CD pipelines via <strong>GitHub Actions and Fastlane</strong>, cutting
+                  deployment times from hours to 12 minutes.</li>
               </ul>
             </div>
 
@@ -454,9 +509,12 @@
                 <span class="date-loc">Jun 2021 — Dec 2023 | Remote / Lahore</span>
               </div>
               <ul class="paper-bullets">
-                <li>Developed and launched 5+ client applications for fintech, logistics, and healthcare on both Apple App Store and Google Play Store.</li>
-                <li>Integrated secure payment gateways (Stripe, Razorpay, In-App Purchases) and biometrics authentication.</li>
-                <li>Conducted code reviews, enforced strict linting rules, and achieved over 85% test coverage through unit and widget testing.</li>
+                <li>Developed and launched 5+ client applications for fintech, logistics, and healthcare on both Apple
+                  App Store and Google Play Store.</li>
+                <li>Integrated secure payment gateways (Stripe, Razorpay, In-App Purchases) and biometrics
+                  authentication.</li>
+                <li>Conducted code reviews, enforced strict linting rules, and achieved over 85% test coverage through
+                  unit and widget testing.</li>
               </ul>
             </div>
           </section>
@@ -471,7 +529,8 @@
                 <span class="date-loc">Flutter, Riverpod, Hive, Syncfusion Charts</span>
               </div>
               <p style="font-size:12.8px; margin-top:2px;">
-                High-performance personal finance app featuring instant ledger syncing, automated budget alerts, interactive spending graphs, and localized encrypted data storage. Shipped to 50k+ active users.
+                High-performance personal finance app featuring instant ledger syncing, automated budget alerts,
+                interactive spending graphs, and localized encrypted data storage. Shipped to 50k+ active users.
               </p>
             </div>
 
@@ -481,7 +540,8 @@
                 <span class="date-loc">Flutter, BLoC, REST API, Geofencing, Biometrics</span>
               </div>
               <p style="font-size:12.8px; margin-top:2px;">
-                Comprehensive employee attendance, payroll breakdown, leave approvals, and push notifications with real-time GPS check-in geofencing.
+                Comprehensive employee attendance, payroll breakdown, leave approvals, and push notifications with
+                real-time GPS check-in geofencing.
               </p>
             </div>
 
@@ -491,7 +551,8 @@
                 <span class="date-loc">Flutter, WebSockets, Clean Architecture, Candlestick Shaders</span>
               </div>
               <p style="font-size:12.8px; margin-top:2px;">
-                Low-latency trading tracker with live WebSocket price ticker, order book visualizer, custom price alerts, and instant portfolio rebalancing simulations.
+                Low-latency trading tracker with live WebSocket price ticker, order book visualizer, custom price
+                alerts, and instant portfolio rebalancing simulations.
               </p>
             </div>
           </section>
@@ -504,7 +565,8 @@
                 <strong>Bachelor of Science in Computer Science (BSCS)</strong>
                 <span class="date-loc">2017 — 2021</span>
               </div>
-              <p style="font-size:12.5px; color:#475569;">Key Courses: Data Structures & Algorithms, Mobile App Engineering, Software Architecture, Database Systems, Computer Networks.</p>
+              <p style="font-size:12.5px; color:#475569;">Key Courses: Data Structures & Algorithms, Mobile App
+                Engineering, Software Architecture, Database Systems, Computer Networks.</p>
             </div>
           </section>
         </article>
@@ -517,7 +579,7 @@
     </main>
   </div>
 
-  <script src="resume-data.js"></script>
+  <script src="assets/js/resume-data.js"></script>
   <script>
     function toggleView(view) {
       var paperView = document.getElementById('paperResumeView');
@@ -539,4 +601,5 @@
     }
   </script>
 </body>
+
 </html>

@@ -1,0 +1,26 @@
+{
+  "name": "flutter-portfolio",
+  "version": "1.0.0",
+  "description": "Professional Portfolio and Interactive Resume for Mohammad Sheraz — Senior Flutter Developer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "flutter",
+    "dart",
+    "mobile-developer",
+    "threejs",
+    "resume"
+  ],
+  "author": "Mohammad Sheraz <miansheraz8448@gmail.com> (https://github.com/Mian-Sheraz)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mian-Sheraz/Flutter-Portfolio.git"
+  },
+  "homepage": "https://github.com/Mian-Sheraz/Flutter-Portfolio#readme"
+}
